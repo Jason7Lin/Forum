@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.linjinfu.mapper.UserArticleMapper">
+    <!-- resultMap用于实现映射结果集 -->
+    <resultMap id="BaseResultMap" type="Article">
+        <id column="r_id" property="r_id" jdbcType="INTEGER"/>
+        <result column="r_author" property="r_author" jdbcType="VARCHAR"/>
+        <result column="r_summary" property="r_summary" jdbcType="VARCHAR"/>
+        <result column="r_content" property="r_content"/>
+        <result column="r_date" property="r_date" jdbcType="VARCHAR"/>
+        <result column="r_verify" property="r_verify" jdbcType="INTEGER"/>
+        <result column="r_publish" property="r_publish" jdbcType="INTEGER"/>
+        <result column="r_status" property="r_status" jdbcType="INTEGER"/>
+        <result column="r_module" property="r_module" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <resultMap id="moduleResultMap" type="Module">
+        <id column="m_id" property="m_id" jdbcType="INTEGER"/>
+        <result column="m_module" property="m_module" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <select id="findByPage" parameterType="Article" resultType="Article">
+        SELECT * FROM article
+        <where>
+            <if test="r_author != null and r_author !=''">
+                AND r_author LIKE CONCAT('%', #{r_author}, '%')
+            </if>
+            <if test="r_summary != null and r_summary !=''">
+                AND r_summary LIKE CONCAT('%', #{r_summary}, '%')
+            </if>
+            <if test="r_module != null and r_module !=''">
+                AND r_module LIKE CONCAT('%', #{r_module}, '%')
+            </if>
+        </where>
+    </select>
+
+    <select id="selectModuleAll" resultMap="moduleResultMap">
+        select * from module
+    </select>
+
+    <insert id="insertArticle" parameterType="Article">
+        insert into article(
+          r_author,
+          r_summary,
+          r_module,
+          r_content,
+          r_date,
+          r_verify,
+          r_publish,
+          r_status)
+        values(
+          #{r_author},
+          #{r_summary},
+          #{r_module},
+          #{r_content},
+          #{r_date},
+          #{r_verify},
+          #{r_publish},
+          #{r_status}
+        )
+    </insert>
+
+
+    <!-- 删除功能（永久删除信息） -->
+    <delete id="deleteArticle" parameterType="int">
+        delete from article where r_id = #{r_id}
+    </delete>
+
+    <select id="selectArticleById" parameterType="int" resultType="Article">
+        select * from article where r_id = #{r_id}
+    </select>
+
+    <update id="updateArticle" parameterType="Article">
+        update article
+        <set>
+            <if test="r_author !=null and r_author != ''">
+                r_author = #{r_author} ,
+            </if>
+            <if test="r_summary !=null and r_summary != ''">
+                r_summary = #{r_summary} ,
+            </if>
+            <if test="r_module !=null and r_module != ''">
+                r_module = #{r_module} ,
+            </if>
+            <if test="r_content !=null and r_content != ''">
+                r_content = #{r_content} ,
+            </if>
+            <if test="r_date !=null and r_date != ''">
+                r_date = #{r_date} ,
+            </if>
+            <if test="r_verify !=null">
+                r_verify = #{r_verify} ,
+            </if>
+            <if test="r_publish !=null">
+                r_publish = #{r_publish} ,
+            </if>
+            <if test="r_status !=null">
+                r_status = #{r_status} ,
+            </if>
+        </set>
+        <where>
+            r_id = #{r_id}
+        </where>
+    </update>
+
+    <select id="selectArticleWords" resultType="Words">
+        select * from words
+    </select>
+
+    <insert id="insertArticleWords" parameterType="Words">
+        insert into words(
+          lw_name,
+          lw_date,
+          lw_content,
+          lw_for_name,
+          lw_for_article_id
+        )
+        values(
+          #{lw_name},
+          #{lw_date},
+          #{lw_content},
+          #{lw_for_name},
+          #{lw_for_article_id}
+        )
+    </insert>
+
+    <delete id="deleteArticleWords" parameterType="int">
+        delete from words where lw_id = #{lw_id}
+    </delete>
+</mapper>
