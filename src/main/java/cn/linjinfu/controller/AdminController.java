@@ -144,7 +144,7 @@ public class AdminController {
     public String findOtherUserInfo(String a_name,HttpSession session, Model model) {
         Admin user = adminService.findByName(a_name);
         model.addAttribute("user", user);
-        return "view/info/itinfo";
+        return "view/info/otherinfo";
     }
 
     //根据id查询用户信息方法
