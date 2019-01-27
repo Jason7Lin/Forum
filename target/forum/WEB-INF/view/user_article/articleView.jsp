@@ -83,7 +83,7 @@
 
             <hr style="height: 3px;border: none;background-color: #00a8c6;background-image: repeating-linear-gradient(-45deg, #fff, #fff 4px, transparent 4px, transparent 8px);"/>
             <div>
-                <h4><%=count%>楼</h4>
+                <h5><%=count%>楼</h5>
             </div>
             <br/>
             <div>

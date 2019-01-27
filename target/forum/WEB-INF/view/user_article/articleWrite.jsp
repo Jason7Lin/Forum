@@ -123,8 +123,6 @@
         var r_module = $("#r_module").val();
         var r_content = markdown.getMarkdown();
         var r_date = $("#r_date").val();
-        var r_verify = 1;
-        var r_publish = 1;
         var r_status = 0;
         $.ajax({
             url: '<%=basePath%>/userArticle/insertArticle.do',
@@ -136,10 +134,7 @@
                 r_module: r_module,
                 r_content: r_content,
                 r_date: r_date,
-                r_verify: r_verify,
-                r_publish: r_publish,
                 r_status: r_status
-
             },
             success: function (data) {
                 $("body").html(data);
@@ -149,8 +144,6 @@
             }
         });
     });
-
-
 
 </script>
 

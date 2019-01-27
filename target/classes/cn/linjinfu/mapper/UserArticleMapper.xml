@@ -9,8 +9,6 @@
         <result column="r_summary" property="r_summary" jdbcType="VARCHAR"/>
         <result column="r_content" property="r_content"/>
         <result column="r_date" property="r_date" jdbcType="VARCHAR"/>
-        <result column="r_verify" property="r_verify" jdbcType="INTEGER"/>
-        <result column="r_publish" property="r_publish" jdbcType="INTEGER"/>
         <result column="r_status" property="r_status" jdbcType="INTEGER"/>
         <result column="r_module" property="r_module" jdbcType="VARCHAR"/>
     </resultMap>
@@ -46,8 +44,6 @@
           r_module,
           r_content,
           r_date,
-          r_verify,
-          r_publish,
           r_status)
         values(
           #{r_author},
@@ -55,8 +51,6 @@
           #{r_module},
           #{r_content},
           #{r_date},
-          #{r_verify},
-          #{r_publish},
           #{r_status}
         )
     </insert>
@@ -88,12 +82,6 @@
             </if>
             <if test="r_date !=null and r_date != ''">
                 r_date = #{r_date} ,
-            </if>
-            <if test="r_verify !=null">
-                r_verify = #{r_verify} ,
-            </if>
-            <if test="r_publish !=null">
-                r_publish = #{r_publish} ,
             </if>
             <if test="r_status !=null">
                 r_status = #{r_status} ,

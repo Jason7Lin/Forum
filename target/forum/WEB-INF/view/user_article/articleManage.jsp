@@ -35,12 +35,14 @@
                     <label class="layui-form-label"
                            style="margin-left: -10px;padding-left:0;"><strong>楼主</strong></label>
                     <div class="layui-input-inline">
-                        <input name="r_author" value="${article.r_author}" placeholder="请输入楼主名字查询" class="layui-input" type="text">
+                        <input name="r_author" value="${article.r_author}" placeholder="请输入楼主名字查询" class="layui-input"
+                               type="text">
                     </div>
                     <label class="layui-form-label"
                            style="margin-left: -10px;padding-left:0;"><strong>简介</strong></label>
                     <div class="layui-input-inline">
-                        <input name="r_summary" value="${article.r_summary}" placeholder="请输入帖子简介查询" class="layui-input" type="text">
+                        <input name="r_summary" value="${article.r_summary}" placeholder="请输入帖子简介查询" class="layui-input"
+                               type="text">
                     </div>
                     <div class="layui-input-inline" style="margin-left: 50px;">
                         <button class="layui-btn" type="submit">查询</button>
@@ -60,7 +62,7 @@
         <table class="table table-striped table-hover" id="countTable">
             <thead>
             <tr>
-                <th style="text-align:center;">帖子编号</th>
+                <th style="text-align:center;">精品&nbsp;&nbsp;<i class="layui-icon" style="font-size: 18px; color: #2aa198;">&#xe658;</i></th>
                 <th style="text-align:center;">所属版块</th>
                 <th style="text-align: center">帖子简介</th>
                 <th style="text-align: center">帖子楼主</th>
@@ -71,7 +73,13 @@
             <tbody style="text-align: center">
             <c:forEach items="${requestScope.page.beanList}" var="article">
                 <tr>
-                    <td>${article.r_id}</td>
+                        <%--<td>${article.r_id}</td>--%>
+                    <c:if test="${article.r_status=='1'}">
+                        <td><i class="layui-icon" style="font-size: 18px; color: #2aa198;">&#xe658;</i></td>
+                    </c:if>
+                    <c:if test="${article.r_status=='0'}">
+                        <td><i class="layui-icon" style="font-size: 18px; color: #2aa198;">&#xe600;</i></td>
+                    </c:if>
                     <td>${article.r_module}</td>
                     <td>${article.r_summary}</td>
                     <td>${article.r_author}</td>
@@ -113,10 +121,10 @@
                     <strong>条</strong>
                     &nbsp;
                     &nbsp;
-                    <strong>到第</strong>&nbsp;<input type="text" size="3" id="page" name="pageCode"
-                                                    class="form-control input-sm"
-                                                    style="width:11%"/>&nbsp;<strong>页</strong>
-                    &nbsp;
+                    <!--无效-->
+                    <strong>到第</strong>&nbsp;
+                    <input type="text" size="3" id="page" name="pageCode" class="form-control input-sm" style="width:11%"/>
+                    &nbsp;<strong>页</strong>&nbsp;
                     <button type="submit" class="btn btn-sm btn-info">GO!</button>
                 </label>
 
@@ -221,7 +229,6 @@
             }
         });
     }
-
     //编辑
     function edit(r_id) {
         $.ajax({
@@ -239,7 +246,6 @@
             }
         });
     }
-
     $("#cleanBtnMore").click(function () {
         layer.open({
             title: '警告信息',
@@ -250,7 +256,6 @@
             }
         });
     });
-
     //全选
     var all = $("#all");
     var id = $("#a_id");
@@ -260,4 +265,5 @@
         }
     }
 </script>
+
 </html>

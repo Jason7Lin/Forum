@@ -74,7 +74,7 @@
                     </a>
                 </li>
                 <li class="layui-nav-item">
-                    <a style="text-decoration: none;"><strong><span class="fa fa-leaf fa-fw"></span>&nbsp;&nbsp;&nbsp;帖子分类</strong></a>
+                    <a style="text-decoration: none;"><strong><span class="fa fa-leaf fa-fw"></span>&nbsp;&nbsp;&nbsp;论坛版块</strong></a>
                     <dl class="layui-nav-child">
                         <dd><a href="javascript:;" onclick="javascript: toModuleArticle01();"
                                style="text-decoration: none;"><strong>校园快讯</strong></a></dd>

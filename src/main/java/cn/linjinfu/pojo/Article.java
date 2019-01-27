@@ -21,16 +21,16 @@ public class Article implements Serializable {
     private String r_date;
     // 文章模块
     private String r_module;
-
-
-
-
-    // 文章审核 --> 0：未审核   1：已审核
-    private int r_verify;
-    // 文章发表 --> 0：未发表   1：未发表
-    private int r_publish;
-    // 文章状态 --> 0：存在    1：已删除
+    // 文章状态 --> 0：普通    1：精品
     private int r_status;
+
+
+
+//    // 文章审核 --> 0：未审核   1：已审核
+//    private int r_verify;
+//    // 文章发表 --> 0：未发表   1：未发表
+//    private int r_publish;
+
 
     public String getR_module() {
         return r_module;
@@ -78,22 +78,6 @@ public class Article implements Serializable {
 
     public void setR_date(String r_date) {
         this.r_date = r_date;
-    }
-
-    public int getR_verify() {
-        return r_verify;
-    }
-
-    public void setR_verify(int r_verify) {
-        this.r_verify = r_verify;
-    }
-
-    public int getR_publish() {
-        return r_publish;
-    }
-
-    public void setR_publish(int r_publish) {
-        this.r_publish = r_publish;
     }
 
     public int getR_status() {

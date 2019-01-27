@@ -31,7 +31,9 @@
         <table class="table table-striped table-hover" id="countTable">
             <thead>
             <tr>
-                <th style="text-align:center;">帖子编号</th>
+                <th style="text-align:center;">精品&nbsp;&nbsp;<i class="layui-icon"
+                                                                style="font-size: 18px; color: #2aa198;">&#xe658;</i>
+                </th>
                 <th style="text-align:center;">所属版块</th>
                 <th style="text-align: center">帖子简介</th>
                 <th style="text-align: center">帖子楼主</th>
@@ -42,7 +44,13 @@
             <tbody style="text-align: center">
             <c:forEach items="${requestScope.page.beanList}" var="article">
                 <tr>
-                    <td>${article.r_id}</td>
+                        <%--<td>${article.r_id}</td>--%>
+                    <c:if test="${article.r_status=='1'}">
+                        <td><i class="layui-icon" style="font-size: 18px; color: #2aa198;">&#xe658;</i></td>
+                    </c:if>
+                    <c:if test="${article.r_status=='0'}">
+                        <td><i class="layui-icon" style="font-size: 18px; color: #2aa198;">&#xe600;</i></td>
+                    </c:if>
                     <td>${article.r_module}</td>
                     <td>${article.r_summary}</td>
                     <td>${article.r_author}</td>
@@ -54,9 +62,16 @@
                         <a href="<%=basePath%>/userArticle/toEditPage.do?r_id=${article.r_id}">
                             <button type="button" class="layui-btn layui-btn-sm layui-btn-normal">编辑</button>
                         </a>
-                        <button type="button" onclick="return clean(${article.r_id});" class="layui-btn layui-btn-sm layui-btn-danger">
-                            删除
-                        </button>
+                        <%--<button type="button" onclick="return clean(${article.r_id});"--%>
+                                <%--class="layui-btn layui-btn-sm layui-btn-danger">--%>
+                            <%--删除--%>
+                        <%--</button>--%>
+                        <a data-toggle="modal" data-target="#trashModal">
+                            <button type="button" onclick="return trash(${article.r_id})"
+                                    class="layui-btn layui-btn-sm layui-btn-danger">
+                                删除
+                            </button>
+                        </a>
                     </td>
                 </tr>
             </c:forEach>
@@ -156,6 +171,30 @@
             </div>
         </div>
     </form>
+
+    <!-- 删除的模态框 删除1 -->
+    <div class="modal fade" id="trashModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!-- 模糊框头部 -->
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;
+                    </button>
+                    <h4 class="modal-title">警告！</h4>
+                </div>
+                <!-- 模糊框主体 -->
+                <div class="modal-body">
+                    <strong>你确定要删除吗？</strong>
+                </div>
+                <!-- 模糊框底部 -->
+                <div class="modal-footer">
+                    <button type="button" class="delSure btn btn-info" data-dismiss="modal">确定</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
 
 </body>
@@ -168,7 +207,26 @@
     });
 </script>
 <script type="text/javascript">
-    //删除
+
+    // 删除2
+    function trash(r_id) {
+        if (!r_id) {
+            alert("error");
+        } else {
+            $(".delSure").click(function () {
+                $.ajax({
+                    url: '<%=basePath%>/userArticle/deleteArticle.do',
+                    type: 'POST',
+                    data: {r_id: r_id},
+                    success: function (data) {
+                        $("body").html(data);
+                    }
+                });
+            });
+        }
+    }
+
+    //删除1
     function clean(r_id) {
         layer.open({
             title: '警告信息',

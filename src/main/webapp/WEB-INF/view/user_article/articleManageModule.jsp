@@ -26,7 +26,7 @@
         <table class="table table-striped table-hover" id="countTable">
             <thead>
             <tr>
-                <th style="text-align:center;">帖子编号</th>
+                <th style="text-align:center;">精品&nbsp;&nbsp;<i class="layui-icon" style="font-size: 18px; color: #2aa198;">&#xe658;</i></th>
                 <th style="text-align:center;">所属版块</th>
                 <th style="text-align: center">帖子简介</th>
                 <th style="text-align: center">帖子楼主</th>
@@ -37,7 +37,13 @@
             <tbody style="text-align: center">
             <c:forEach items="${requestScope.page.beanList}" var="article">
                 <tr>
-                    <td>${article.r_id}</td>
+                        <%--<td>${article.r_id}</td>--%>
+                    <c:if test="${article.r_status=='1'}">
+                        <td><i class="layui-icon" style="font-size: 18px; color: #2aa198;">&#xe658;</i></td>
+                    </c:if>
+                    <c:if test="${article.r_status=='0'}">
+                        <td><i class="layui-icon" style="font-size: 18px; color: #2aa198;">&#xe600;</i></td>
+                    </c:if>
                     <td>${article.r_module}</td>
                     <td>${article.r_summary}</td>
                     <td>${article.r_author}</td>
@@ -187,7 +193,6 @@
             }
         });
     }
-
     //编辑
     function edit(r_id) {
         $.ajax({
@@ -205,7 +210,6 @@
             }
         });
     }
-
     $("#cleanBtnMore").click(function () {
         layer.open({
             title: '警告信息',
@@ -216,7 +220,6 @@
             }
         });
     });
-
     //全选
     var all = $("#all");
     var id = $("#a_id");
@@ -226,4 +229,5 @@
         }
     }
 </script>
+
 </html>
