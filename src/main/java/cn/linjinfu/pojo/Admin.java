@@ -12,8 +12,6 @@ public class Admin implements Serializable {
 
     // ID编号
     private int a_id;
-    // 用户名
-    private String a_name;
     // 密码
     private String a_password;
     // 是否管理员
@@ -21,11 +19,22 @@ public class Admin implements Serializable {
     // 黑名单
     private String a_black;
 
-
+    // 用户名
+    private String a_name;
     // 联系电话
     private String a_telephone;
+    // 电子邮箱
+    private String a_email;
+    // 个人简介
+    private String a_sign;
     // 注册日期
     private String a_date;
+    // 头像
+    private String a_photo;
+    // 性别
+    private String a_sex;
+    // 年龄
+    private String a_age;
 
 
     public String getA_key() {
@@ -82,5 +91,45 @@ public class Admin implements Serializable {
 
     public void setA_black(String a_black) {
         this.a_black = a_black;
+    }
+
+    public String getA_email() {
+        return a_email;
+    }
+
+    public void setA_email(String a_email) {
+        this.a_email = a_email;
+    }
+
+    public String getA_sign() {
+        return a_sign;
+    }
+
+    public void setA_sign(String a_sign) {
+        this.a_sign = a_sign;
+    }
+
+    public String getA_photo() {
+        return a_photo;
+    }
+
+    public void setA_photo(String a_photo) {
+        this.a_photo = a_photo;
+    }
+
+    public String getA_sex() {
+        return a_sex;
+    }
+
+    public void setA_sex(String a_sex) {
+        this.a_sex = a_sex;
+    }
+
+    public String getA_age() {
+        return a_age;
+    }
+
+    public void setA_age(String a_age) {
+        this.a_age = a_age;
     }
 }

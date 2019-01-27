@@ -44,7 +44,7 @@
     <div style="border-left: 3px solid #f44336;">
         <div style="margin-bottom:8px;">
             &nbsp;&nbsp;<span style="font-size:15px;">帖子楼主：&nbsp;</span>
-            <span style="font-size:15px;">${article.r_author}</span>
+            <a href="<%=basePath%>/admin/findOtherUserInfo.do?a_name=${article.r_author}"><span style="font-size:18px;">${article.r_author}</span></a>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size:15px;">所属模块：&nbsp;</span>
             <span style="font-size:15px;">${article.r_module}</span>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size:15px;">发表时间：&nbsp;</span>
@@ -93,7 +93,7 @@
             <div style="border-left: 3px solid #f44336;">
                 <div style="margin-bottom:8px;">
                     &nbsp;&nbsp;<span style="font-size:15px;">留言用户：&nbsp;</span>
-                    <span style="font-size:15px;">${words.lw_name}</span>
+                    <a href="<%=basePath%>/admin/findOtherUserInfo.do?a_name=${words.lw_name}"><span style="font-size:18px;">${words.lw_name}</span></a>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size:15px;">留言时间：&nbsp;</span>
                     <span style="font-size:15px;">${words.lw_date}</span>
                 </div>

@@ -9,4 +9,8 @@ public interface AdminService {
     void insert(Admin admin);
 
     Admin findByName(String a_name);
+
+    Admin findUserById(int a_id);
+
+    void updateUserById(Admin admin);
 }

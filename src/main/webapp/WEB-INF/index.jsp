@@ -1,9 +1,13 @@
+<%@ page import="java.util.Date" %>
+<%@ page import="java.text.SimpleDateFormat" %>
 <%@ page isELIgnored="false" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
-    String kkkkkkkkk;
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path;
+    Date date = new Date();
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+    String nowDate = sdf.format(date);
 %>
 <html>
 <head>
@@ -107,6 +111,8 @@
             <div>
                 <!--默认白名单-->
                 <input type="text" name="a_black" value="0" id="a_black" hidden/>
+                <!--注册时间-->
+                <input type="text" name="a_date" value="<%=nowDate%>" id="a_date" hidden/>
                 <div class="layui-form-item layui-inline" style="width:110%">
                     <label class="layui-form-label" style="margin-left:13%;"><i class="fa fa-user fa-fw"></i></label>
                     <div class="layui-input-inline">

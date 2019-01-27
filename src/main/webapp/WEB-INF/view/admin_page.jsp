@@ -25,10 +25,10 @@
 <div class="layui-layout layui-layout-admin">
 
     <div class="layui-header">
-        <div class="layui-logo" style="font-size: 17px;"><strong>校园论坛系统</strong></div>
+        <div class="layui-logo" style="font-size: 17px;"><strong>校园论坛系统管理后台</strong></div>
         <ul class="layui-nav layui-layout-left">
             <li class="layui-nav-item">
-                <a href="<%=basePath%>/admin/userPage.do" style="text-decoration: none;">
+                <a href="<%=basePath%>/admin/adminPage.do" style="text-decoration: none;">
                     <strong>首页</strong>
                 </a>
             </li>
@@ -42,7 +42,7 @@
                     <strong>${sessionScope.name}</strong>
                 </a>
                 <dl class="layui-nav-child">
-                    <dd><a href="javascript:;" onclick="javascript: toUserInfo();" style="text-decoration: none;"><strong>基本资料</strong></a></dd>
+                    <dd><a href="" style="text-decoration: none;"><strong>基本资料</strong></a></dd>
                     <dd><a href="" style="text-decoration: none;"><strong>安全设置</strong></a></dd>
                     <hr/>
                     <dd>
@@ -67,9 +67,9 @@
             <ul class="layui-nav layui-nav-tree" lay-filter="test">
 
                 <li class="layui-nav-item">
-                    <a href="javascript:;" onclick="javascript: toAllArticle();" style="text-decoration: none;">
+                    <a href="javascript:;" onclick="javascript: toAllAdmin();" style="text-decoration: none;">
                         <strong>
-                            <span class="fa fa-twitter fa-fw"></span>&nbsp;&nbsp;&nbsp;全部帖子
+                            <span class="fa fa-twitter fa-fw"></span>&nbsp;&nbsp;&nbsp;用户管理
                         </strong>
                     </a>
                 </li>
@@ -138,10 +138,6 @@
     });
 </script>
 <script type="text/javascript">
-    function toUserInfo() {
-        document.getElementById("content").innerHTML = "<object type=\"text/html\" data=\"<%=basePath%>/admin/findUserInfo.do?a_name=${sessionScope.name}\" width=\"100%\" height=\"100%\"></object>";
-    }
-
     function toAllArticle() {
         document.getElementById("content").innerHTML = "<object type=\"text/html\" data=\"<%=basePath%>/userArticle/findByPage.do?key=0\" width=\"100%\" height=\"100%\"></object>";
     }

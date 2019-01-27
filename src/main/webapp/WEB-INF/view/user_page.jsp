@@ -42,7 +42,7 @@
                     <strong>${sessionScope.name}</strong>
                 </a>
                 <dl class="layui-nav-child">
-                    <dd><a href="" style="text-decoration: none;"><strong>基本资料</strong></a></dd>
+                    <dd><a href="javascript:;" onclick="javascript: toUserInfo();" style="text-decoration: none;"><strong>基本资料</strong></a></dd>
                     <dd><a href="" style="text-decoration: none;"><strong>安全设置</strong></a></dd>
                     <hr/>
                     <dd>
@@ -138,6 +138,10 @@
     });
 </script>
 <script type="text/javascript">
+    function toUserInfo() {
+        document.getElementById("content").innerHTML = "<object type=\"text/html\" data=\"<%=basePath%>/admin/findUserInfo.do?a_name=${sessionScope.name}\" width=\"100%\" height=\"100%\"></object>";
+    }
+
     function toAllArticle() {
         document.getElementById("content").innerHTML = "<object type=\"text/html\" data=\"<%=basePath%>/userArticle/findByPage.do?key=0\" width=\"100%\" height=\"100%\"></object>";
     }

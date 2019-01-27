@@ -23,18 +23,48 @@
           a_name,
           a_password,
           a_key,
-          a_black
+          a_black,
+          a_date
         )
         values(
           #{a_name},
           #{a_password},
           #{a_key},
-          #{a_black}
+          #{a_black},
+          #{a_date}
         )
     </insert>
 
     <!-- 根据用户名查询 -->
     <select id="findByName" parameterType="String" resultType="Admin">
-        select a_name from admin where a_name = #{a_name}
+        select * from admin where a_name = #{a_name}
     </select>
+
+    <select id="findUserById" parameterType="int" resultType="Admin">
+        select * from admin where a_id = #{a_id}
+    </select>
+
+    <update id="updateUserById" parameterType="Admin">
+        update admin
+        <set>
+            <if test="a_sex !=null and a_sex !=''">
+                a_sex = #{a_sex} ,
+            </if>
+            <if test="a_age !=null and a_age !=''">
+                a_age = #{a_age} ,
+            </if>
+            <if test="a_telephone !=null and a_telephone !=''">
+                a_telephone = #{a_telephone} ,
+            </if>
+            <if test="a_email !=null and a_email !=''">
+                a_email = #{a_email} ,
+            </if>
+            <if test="a_sign !=null and a_sign !=''">
+                a_sign = #{a_sign} ,
+            </if>
+        </set>
+        <where>
+            a_id = #{a_id}
+        </where>
+    </update>
 </mapper>

@@ -48,4 +48,12 @@ public class AdminServiceImpl implements AdminService {
     public Admin findByName(String a_name) {
         return adminMapper.findByName(a_name);
     }
+
+    public Admin findUserById(int a_id){
+        return adminMapper.findUserById(a_id);
+    }
+
+    public void updateUserById(Admin admin){
+        adminMapper.updateUserById(admin);
+    }
 }
