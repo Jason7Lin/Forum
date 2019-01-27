@@ -171,6 +171,22 @@ public class UserArticleController {
                 page = service.findByPage(article, pageCode, pageSize);
                 model.addAttribute("page", page);
                 return "view/user_article/articleManageModule";
+            case "3":
+                //保存status，
+                //1=从url参数里取并保存到session，0=取用session里的status
+                String status = request.getParameter("status");
+                if (status != null) {
+                    session.setAttribute("status", status);
+                } else {
+                    status = (String) session.getAttribute("status");
+                }
+
+                int status1=Integer.parseInt(status);
+                //article由status1而来
+                article.setR_status(status1);
+                page = service.findByPage(article, pageCode, pageSize);
+                model.addAttribute("page", page);
+                return "view/user_article/articleManageGreat";
             default:
                 return null;
         }

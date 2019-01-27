@@ -28,7 +28,10 @@
                 AND r_summary LIKE CONCAT('%', #{r_summary}, '%')
             </if>
             <if test="r_module != null and r_module !=''">
-                AND r_module LIKE CONCAT('%', #{r_module}, '%')
+                AND r_module = #{r_module}
+            </if>
+            <if test="r_status != null and r_status !=''">
+                AND r_status = #{r_status}
             </if>
         </where>
     </select>

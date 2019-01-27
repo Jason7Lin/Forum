@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 /**
  * 管理人员信息
+ *
  * @author TyCoding
  * @date 18-4-26下午9:14
  */
@@ -15,12 +16,17 @@ public class Admin implements Serializable {
     private String a_name;
     // 密码
     private String a_password;
+    // 是否管理员
+    private String a_key;
+    // 黑名单
+    private String a_black;
+
+
     // 联系电话
     private String a_telephone;
     // 注册日期
     private String a_date;
-    // 身份
-    private String a_key;
+
 
     public String getA_key() {
         return a_key;
@@ -68,5 +74,13 @@ public class Admin implements Serializable {
 
     public void setA_date(String a_date) {
         this.a_date = a_date;
+    }
+
+    public String getA_black() {
+        return a_black;
+    }
+
+    public void setA_black(String a_black) {
+        this.a_black = a_black;
     }
 }

@@ -47,11 +47,24 @@ public class AdminController {
         if (admin != null) {
             if (admin.getA_password().equals(a_password)&&admin.getA_key().equals(a_key)) {
                 session.setAttribute("name", admin.getA_name());
+                //是管理员
                 if(admin.getA_key().equals("1")){
                     return "view/page";
-                }else {
-                    return "view/user_page";
                 }
+                //是用户
+                if(admin.getA_key().equals("0")){
+                    //是白名单
+                    if(admin.getA_black().equals("0")){
+                        return "view/user_page";
+                    }
+                    //是黑名单
+                    if(admin.getA_black().equals("1")){
+                        model.addAttribute("message", "您的账号已被禁用，请联系管理员");
+                        return "view/login/info";
+                    }
+                }
+                //异常
+                return null;
             } else {
                 model.addAttribute("message", "用户名或密码错误");
                 return "view/login/info";

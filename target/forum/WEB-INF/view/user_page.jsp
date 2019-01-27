@@ -101,9 +101,16 @@
                     </dl>
                 </li>
                 <li class="layui-nav-item">
+                    <a href="javascript:;" onclick="javascript: toGreatArticle();" style="text-decoration: none;">
+                        <strong>
+                            <span class="fa fa-send fa-fw"></span>&nbsp;&nbsp;&nbsp;精品帖子
+                        </strong>
+                    </a>
+                </li>
+                <li class="layui-nav-item">
                     <a href="javascript:;" onclick="javascript: toMyArticle();" style="text-decoration: none;">
                         <strong>
-                            <span class="fa fa-send fa-fw"></span>&nbsp;&nbsp;&nbsp;我的帖子
+                            <span class="fa fa-user fa-fw"></span>&nbsp;&nbsp;&nbsp;我的帖子
                         </strong>
                     </a>
                 </li>
@@ -137,6 +144,10 @@
 
     function toMyArticle() {
         document.getElementById("content").innerHTML = "<object type=\"text/html\" data=\"<%=basePath%>/userArticle/findByPage.do?author=${sessionScope.name}&key=1\" width=\"100%\" height=\"100%\"></object>";
+    }
+
+    function toGreatArticle() {
+        document.getElementById("content").innerHTML = "<object type=\"text/html\" data=\"<%=basePath%>/userArticle/findByPage.do?status=1&key=3\" width=\"100%\" height=\"100%\"></object>";
     }
 
     function toModuleArticle01() {

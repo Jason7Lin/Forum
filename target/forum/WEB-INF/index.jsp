@@ -14,21 +14,23 @@
     <link rel="stylesheet" href="<%=basePath%>/static/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="<%=basePath%>/static/layui/css/layui.css"/>
     <style type="text/css">
-        .header{
+        .header {
             background-image: url("<%=basePath%>/static/img/color.jpeg");
             background-size: 100%;
             height: 240px;
         }
-        #code{
-            font-family:Arial;
-            font-style:italic;
-            font-weight:bold;
-            letter-spacing:2px;
+
+        #code {
+            font-family: Arial;
+            font-style: italic;
+            font-weight: bold;
+            letter-spacing: 2px;
             color: #393D49;
             width: 70px;
         }
-        #content{
-            width:40%;
+
+        #content {
+            width: 40%;
             margin: 6% 30% 0 30%;
             height: 53%;
         }
@@ -51,7 +53,8 @@
             <br/>
             <br/>
             <label style="font-size:20px;color:white;padding-right:8%;">
-                <a href="#" id="login" style="text-decoration: none;border-bottom:2px solid #009688;color:#009688">登录</a>
+                <a href="#" id="login"
+                   style="text-decoration: none;border-bottom:2px solid #009688;color:#009688">登录</a>
             </label>
             <label style="font-size:20px;color:white;padding-left:8%;">
                 <a href="#" id="register" style="text-decoration:none;">注册</a>
@@ -59,13 +62,16 @@
         </div>
         <hr style="color: #484848;text-align:center;"/>
         <!-- 登录的表单 -->
-        <form action="<%=basePath%>/admin/login.do" id="loginform" method="post" class="layui-form" style="text-align: center;margin-right:12%;margin-top:10%;">
+        <form action="<%=basePath%>/admin/login.do" id="loginform" method="post" class="layui-form"
+              style="text-align: center;margin-right:12%;margin-top:10%;">
             <input name="a_id" hidden="hidden" value="${a_id}"/>
             <div>
                 <div class="layui-form-item layui-inline" style="width:110%">
                     <label class="layui-form-label" style="margin-left:13%;"><i class="fa fa-user fa-fw"></i></label>
                     <div class="layui-input-inline">
-                        <input type="text" name="a_name" class="layui-input" style="background:none;border: none;border-bottom:1px solid white;" placeholder="Username"/>
+                        <input type="text" name="a_name" class="layui-input"
+                               style="background:none;border: none;border-bottom:1px solid white;"
+                               placeholder="Username"/>
                     </div>
                 </div>
 
@@ -75,7 +81,9 @@
                         <span class="fa fa-lock fa-fw"></span>
                     </label>
                     <div class="layui-input-inline">
-                        <input type="password" name="a_password" class="layui-input" style="background:none;border: none;border-bottom:1px solid white;" placeholder="Password"/>
+                        <input type="password" name="a_password" class="layui-input"
+                               style="background:none;border: none;border-bottom:1px solid white;"
+                               placeholder="Password"/>
                     </div>
                 </div>
                 <br/>
@@ -94,12 +102,17 @@
             </div>
         </form>
         <!-- 注册的表单 -->
-        <form action="<%=basePath%>/admin/register.do" id="registerform" method="post" class="layui-form" hidden="hidden" style="text-align: center;margin-right:12%;margin-top:10%;">
+        <form action="<%=basePath%>/admin/register.do" id="registerform" method="post" class="layui-form"
+              hidden="hidden" style="text-align: center;margin-right:12%;margin-top:10%;">
             <div>
+                <!--默认白名单-->
+                <input type="text" name="a_black" value="0" id="a_black" hidden/>
                 <div class="layui-form-item layui-inline" style="width:110%">
                     <label class="layui-form-label" style="margin-left:13%;"><i class="fa fa-user fa-fw"></i></label>
                     <div class="layui-input-inline">
-                        <input type="text" name="a_name" id="a_name" onblur="return checkName();" class="layui-input" style="background:none;border: none;border-bottom:1px solid white;" placeholder="Username"/>
+                        <input type="text" name="a_name" id="a_name" onblur="return checkName();" class="layui-input"
+                               style="background:none;border: none;border-bottom:1px solid white;"
+                               placeholder="Username"/>
                     </div>
                     <span id="info"></span>
                 </div>
@@ -109,7 +122,9 @@
                         <span class="fa fa-lock fa-fw"></span>
                     </label>
                     <div class="layui-input-inline">
-                        <input type="password" name="a_password" id="a_password" class="layui-input" style="background:none;border: none;border-bottom:1px solid white;" placeholder="Password"/>
+                        <input type="password" name="a_password" id="a_password" class="layui-input"
+                               style="background:none;border: none;border-bottom:1px solid white;"
+                               placeholder="Password"/>
                     </div>
                 </div>
                 <br/>
@@ -126,16 +141,19 @@
                         <span class="fa fa-envelope fa-fw"></span>
                     </label>
                     <div class="layui-input-inline" style="width: 32%;">
-                        <input type="text" id="check" class="layui-input" style="background:none;border: none;border-bottom:1px solid white;"/>
+                        <input type="text" id="check" class="layui-input"
+                               style="background:none;border: none;border-bottom:1px solid white;"/>
                     </div>
                     <div class="layui-input-inline">
-                        <input id="code" onclick="createCode()" type="button" style="background:none;border: none;margin-left:198px;margin-top:-14%;"/>
+                        <input id="code" onclick="createCode()" type="button"
+                               style="background:none;border: none;margin-left:198px;margin-top:-14%;"/>
                     </div>
                 </div>
                 <br/>
                 <br/>
                 <div style="text-align:center;color: #009688;background-color: #01AAED;width:48%;margin-left:34%;">
-                    <input type="button" class="layui-btn layui-btn-lg" style="background: none;" value="Sing up" onclick="validate()"/>
+                    <input type="button" class="layui-btn layui-btn-lg" style="background: none;" value="Sing up"
+                           onclick="validate()"/>
                 </div>
             </div>
         </form>
@@ -146,48 +164,49 @@
 <script src="<%=basePath%>/static/js/jquery-3.3.1.min.js"></script>
 <script src="<%=basePath%>/static/layui/layui.all.js"></script>
 <script type="text/javascript">
-    layui.use(['layer','element'], function(){
+    layui.use(['layer', 'element'], function () {
         var layer = layui.layer;
         var element = layui.element;
     });
-    $("#register").click(function(){
-        $("#login").css({'border':'none','color':'#393D49'});
-        $(this).css({'border-bottom':'2px solid #009688','color':'#009688'});
+    $("#register").click(function () {
+        $("#login").css({'border': 'none', 'color': '#393D49'});
+        $(this).css({'border-bottom': '2px solid #009688', 'color': '#009688'});
         $("#loginform").hide();
         $("#registerform").show();
     });
-    $("#login").click(function(){
-        $("#register").css({'border':'none','color':'#393D49'});
-        $(this).css({'border-bottom':'2px solid #009688','color':'#009688'});
+    $("#login").click(function () {
+        $("#register").css({'border': 'none', 'color': '#393D49'});
+        $(this).css({'border-bottom': '2px solid #009688', 'color': '#009688'});
         $("#registerform").hide();
         $("#loginform").show();
     });
-    function checkName(){
+
+    function checkName() {
         var a_name = $("#a_name").val();
-        if(a_name != ''){
+        if (a_name != '') {
             $.ajax({
                 url: '<%=basePath%>/admin/findByName.do',
                 type: 'post',
                 dataType: 'json',
                 contentType: 'application/json;charset=utf-8',
                 data: JSON.stringify({"a_name": a_name}),
-                success: function(data){
-                    if(data == null){
-                        $("#info").text("可以注册").css({'color':'green','font-size':'1px'});
+                success: function (data) {
+                    if (data == null) {
+                        $("#info").text("可以注册").css({'color': 'green', 'font-size': '1px'});
                         return true;
                     }
-                    if(data != null){
-                        $("#info").text("该用户名已注册").css({'color':'red','font-size':'1px'});
+                    if (data != null) {
+                        $("#info").text("该用户名已注册").css({'color': 'red', 'font-size': '1px'});
                         return false;
                     }
                 },
-                error: function(){
+                error: function () {
                     alert("错误");
                     return false;
                 }
             });
         }
-        if(a_name == ''){
+        if (a_name == '') {
             $("#info").text("");
         }
     }
@@ -195,18 +214,19 @@
 <script type="text/javascript">
     //设置一个全局的变量，便于保存验证码
     var code;
-    function createCode(){
+
+    function createCode() {
         //首先默认code为空字符串
         code = '';
         //设置长度，这里看需求，我这里设置了4
         var codeLength = 4;
         var codeV = document.getElementById('code');
         //设置随机字符
-        var random = new Array(0,1,2,3,4,5,6,7,8,9,'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R', 'S','T','U','V','W','X','Y','Z');
+        var random = new Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z');
         //循环codeLength 我设置的4就是循环4次
-        for(var i = 0; i < codeLength; i++){
+        for (var i = 0; i < codeLength; i++) {
             //设置随机数范围,这设置为0 ~ 36
-            var index = Math.floor(Math.random()*36);
+            var index = Math.floor(Math.random() * 36);
             //字符串拼接 将每次随机的字符 进行拼接
             code += random[index];
         }
@@ -215,31 +235,32 @@
     }
 
     //下面就是判断是否== 的代码，无需解释
-    function validate(){
+    function validate() {
         var oValue = document.getElementById('check').value.toUpperCase();
-        if(oValue == 0){
+        if (oValue == 0) {
             layer.open({
                 title: '警告信息',
                 content: '请输入验证码'
             });
-        }else if(oValue != code){
+        } else if (oValue != code) {
             $("#check").val("");
             layer.open({
                 title: '警告信息',
                 content: '您输入的验证码不正确，请重新输入'
             });
             createCode();
-        }else if(checkName()){
+        } else if (checkName()) {
             layer.open({
                 title: '警告信息',
                 content: '您输入的用户名有误，请重新输入'
             });
-        }else{
+        } else {
             $("#registerform").submit();
         }
     }
+
     //设置此处的原因是每次进入界面展示一个随机的验证码，不设置则为空
-    window.onload = function (){
+    window.onload = function () {
         createCode();
     }
 </script>

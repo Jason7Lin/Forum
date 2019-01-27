@@ -22,12 +22,14 @@
         admin(
           a_name,
           a_password,
-          a_key
+          a_key,
+          a_black
         )
         values(
           #{a_name},
           #{a_password},
-          #{a_key}
+          #{a_key},
+          #{a_black}
         )
     </insert>
 

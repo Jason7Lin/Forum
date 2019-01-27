@@ -24,22 +24,8 @@
 <div class="header">
     <div style="margin: 0 45% 0 45%;padding-top:5%;text-align:center;">
         <div style="height:39px;width:167px;background:black;text-align:center;">
-            <h3 style="font-family: Menlo;color:white;padding-top:6px;"><strong>TyCoding</strong></h3>
+            <h3 style="font-family: Menlo;color:white;padding-top:6px;"><strong>BBS</strong></h3>
         </div>
-        <h4 style="margin-top:45px;">
-            &nbsp;
-            <span style="font-size:20px;" class="fa fa-github fa-fw"></span>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <span style="font-size:20px;" class="fa fa-home fa-fw"></span>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <span style="font-size:20px;" class="fa fa-linkedin fa-fw"></span>
-            <br/>
-            <label><a href="https://github.com/TyCoding">GitHub</a></label>
-            &nbsp;&nbsp;&nbsp;
-            <label><a href="www.tycoding.cn">Blog</a></label>
-            &nbsp;&nbsp;&nbsp;&nbsp;
-            <label><a href="https://www.zhihu.com/people/tomo-83-82/activities">ZhiHu</a></label>
-        </h4>
     </div>
 </div>
 
@@ -49,7 +35,7 @@
         <br/>
         <br/>
         <br/>
-        <h1 style="color:#009688">错误信息</h1>
+        <h1 style="color:#009688">提示信息</h1>
         <hr/>
         <br/>
         <h3 style="color:#FF5722">${message}</h3>

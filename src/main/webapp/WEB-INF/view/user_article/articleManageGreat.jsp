@@ -17,23 +17,16 @@
     <br/>
     <fieldset class="layui-elem-field layui-field-title">
         <legend style="margin-left: 20px;padding: 0 10px;text-align: left;width: 170px;border-bottom: none;">
-            <strong>我发布的帖子</strong></legend>
+            <strong>精品贴</strong></legend>
     </fieldset>
 
-    <div class="layui-inline" style="margin-left:450px;padding-left: 0;">
-        <a href="<%=basePath%>/userArticle/toArticleWrite.do">
-            <button type="button" id="addBtn" class="layui-btn layui-btn">新增帖子</button>
-        </a>
-    </div>
     <hr style="margin-top: 0;"/>
 
     <div class="table-responsive">
         <table class="table table-striped table-hover" id="countTable">
             <thead>
             <tr>
-                <th style="text-align:center;">精品&nbsp;&nbsp;<i class="layui-icon"
-                                                                style="font-size: 18px; color: #2aa198;">&#xe658;</i>
-                </th>
+                <th style="text-align:center;">精品&nbsp;&nbsp;<i class="layui-icon" style="font-size: 18px; color: #2aa198;">&#xe658;</i></th>
                 <th style="text-align:center;">所属版块</th>
                 <th style="text-align: center">帖子简介</th>
                 <th style="text-align: center">帖子楼主</th>
@@ -58,19 +51,6 @@
                     <td>
                         <a href="<%=basePath%>/userArticle/toArticleView.do?r_id=${article.r_id}">
                             <button type="button" class="layui-btn layui-btn-sm">查看</button>
-                        </a>
-                        <a href="<%=basePath%>/userArticle/toEditPage.do?r_id=${article.r_id}">
-                            <button type="button" class="layui-btn layui-btn-sm layui-btn-normal">编辑</button>
-                        </a>
-                        <%--<button type="button" onclick="return clean(${article.r_id});"--%>
-                                <%--class="layui-btn layui-btn-sm layui-btn-danger">--%>
-                            <%--删除--%>
-                        <%--</button>--%>
-                        <a data-toggle="modal" data-target="#trashModal">
-                            <button type="button" onclick="return trash(${article.r_id})"
-                                    class="layui-btn layui-btn-sm layui-btn-danger">
-                                删除
-                            </button>
                         </a>
                     </td>
                 </tr>
@@ -171,30 +151,6 @@
             </div>
         </div>
     </form>
-
-    <!-- 删除的模态框 删除1 -->
-    <div class="modal fade" id="trashModal">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <!-- 模糊框头部 -->
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;
-                    </button>
-                    <h4 class="modal-title">警告！</h4>
-                </div>
-                <!-- 模糊框主体 -->
-                <div class="modal-body">
-                    <strong>你确定要删除吗？</strong>
-                </div>
-                <!-- 模糊框底部 -->
-                <div class="modal-footer">
-                    <button type="button" class="delSure btn btn-info" data-dismiss="modal">确定</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
 </div>
 
 </body>
@@ -207,34 +163,15 @@
     });
 </script>
 <script type="text/javascript">
-
-    // 删除2
-    function trash(r_id) {
-        if (!r_id) {
-            alert("error");
-        } else {
-            $(".delSure").click(function () {
-                $.ajax({
-                    url: '<%=basePath%>/userArticle/deleteArticle.do',
-                    type: 'POST',
-                    data: {r_id: r_id},
-                    success: function (data) {
-                        $("body").html(data);
-                    }
-                });
-            });
-        }
-    }
-
-    //删除1
+    //删除
     function clean(r_id) {
         layer.open({
             title: '警告信息',
-            content: '你确定要删除？',
+            content: '你确定要删除？（文章将保存在回收站中）',
             btn: ['确定', '取消'],
             btn1: function (index, layero) {
                 $.ajax({
-                    url: '<%=basePath%>/userArticle/deleteArticle.do',
+                    url: '<%=basePath%>/article/clean.do',
                     type: 'POST',
                     data: {r_id: r_id},
                     success: function (data) {
@@ -256,7 +193,6 @@
             }
         });
     }
-
     //编辑
     function edit(r_id) {
         $.ajax({
@@ -274,8 +210,6 @@
             }
         });
     }
-
-    <!-------noUsed-------->
     $("#cleanBtnMore").click(function () {
         layer.open({
             title: '警告信息',
@@ -295,4 +229,5 @@
         }
     }
 </script>
+
 </html>

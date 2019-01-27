@@ -20,9 +20,9 @@
             <strong>我发布的帖子</strong></legend>
     </fieldset>
 
-    <div class="layui-inline">
+    <div class="layui-inline" style="margin-left:450px;padding-left: 0;">
         <a href="<%=basePath%>/userArticle/toArticleWrite.do">
-            <button type="button" id="addBtn" class="layui-btn layui-btn">发布新帖</button>
+            <button type="button" id="addBtn" class="layui-btn layui-btn">新增帖子</button>
         </a>
     </div>
     <hr style="margin-top: 0;"/>
