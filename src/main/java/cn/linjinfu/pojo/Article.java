@@ -23,6 +23,8 @@ public class Article implements Serializable {
     private String r_module;
 
 
+
+
     // 文章审核 --> 0：未审核   1：已审核
     private int r_verify;
     // 文章发表 --> 0：未发表   1：未发表

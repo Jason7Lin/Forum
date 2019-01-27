@@ -43,7 +43,7 @@
     </div>
     <div style="border-left: 3px solid #f44336;">
         <div style="margin-bottom:8px;">
-            &nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size:15px;">帖子楼主：&nbsp;</span>
+            &nbsp;&nbsp;<span style="font-size:15px;">帖子楼主：&nbsp;</span>
             <span style="font-size:15px;">${article.r_author}</span>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size:15px;">所属模块：&nbsp;</span>
             <span style="font-size:15px;">${article.r_module}</span>
@@ -92,7 +92,7 @@
             <br/>
             <div style="border-left: 3px solid #f44336;">
                 <div style="margin-bottom:8px;">
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size:15px;">留言用户：&nbsp;</span>
+                    &nbsp;&nbsp;<span style="font-size:15px;">留言用户：&nbsp;</span>
                     <span style="font-size:15px;">${words.lw_name}</span>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size:15px;">留言时间：&nbsp;</span>
                     <span style="font-size:15px;">${words.lw_date}</span>

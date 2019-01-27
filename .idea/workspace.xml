@@ -58,6 +58,7 @@
   </component>
   <component name="Git.Settings">
     <option name="ROOT_SYNC" value="DONT_SYNC" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -65,7 +66,6 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/cn/linjinfu/controller/ArticlesController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/linjinfu/pojo/Article.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/linjinfu/pojo/Module.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/linjinfu/controller/ArticleController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/user_article/articleWrite.jsp" />
@@ -76,11 +76,13 @@
         <option value="$PROJECT_DIR$/src/main/java/cn/linjinfu/service/impl/UserArticleServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/linjinfu/mapper/UserArticleMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/linjinfu/mapper/UserArticleMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/user_article/articleView.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/user_article/articleManage.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/user_article/articleManageModule.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/cn/linjinfu/controller/UserArticleController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/index.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/user_article/articleView.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/linjinfu/pojo/user.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/linjinfu/pojo/Article.java" />
       </list>
     </option>
   </component>
@@ -140,7 +142,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -164,6 +167,30 @@
               <item name="Forum" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Forum" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Forum" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="linjinfu" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Forum" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Forum" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="linjinfu" type="462c0819:PsiDirectoryNode" />
+              <item name="pojo" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Forum" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Forum" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -174,18 +201,36 @@
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
               <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Forum" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Forum" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Forum" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Forum" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+              <item name="user_article" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="E:/Github/Forum" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Project" />
@@ -340,17 +385,18 @@
       <option name="presentableId" value="Default" />
       <updated>1548264366958</updated>
       <workItem from="1548264368484" duration="56740000" />
+      <workItem from="1548414480822" duration="399000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="56740000" />
+    <option name="totallyTimeSpent" value="57139000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <layout>
       <window_info anchor="right" id="Palette" order="5" />
-      <window_info anchor="bottom" id="Event Log" order="6" side_tool="true" weight="0.3298153" />
+      <window_info anchor="bottom" id="Event Log" order="6" sideWeight="0.50075644" side_tool="true" weight="0.5" />
       <window_info anchor="bottom" id="Application Servers" order="0" weight="0.32888147" />
       <window_info anchor="right" id="Maven Projects" order="0" weight="0.32980332" />
       <window_info anchor="bottom" id="Database Changes" order="3" show_stripe_button="false" />
@@ -367,17 +413,17 @@
       <window_info id="Image Layers" order="1" />
       <window_info anchor="bottom" id="Java Enterprise" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="1" />
-      <window_info anchor="bottom" id="Run" order="7" weight="0.5008347" />
-      <window_info anchor="bottom" id="Version Control" order="4" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Spring" />
+      <window_info anchor="bottom" id="Run" order="7" sideWeight="0.49924356" weight="0.5" />
+      <window_info anchor="bottom" id="Version Control" order="4" />
+      <window_info anchor="bottom" id="Spring" order="14" />
       <window_info anchor="bottom" id="Terminal" order="1" weight="0.32888147" />
-      <window_info active="true" content_ui="combo" id="Project" order="4" sideWeight="0.46268657" visible="true" weight="0.20272315" />
+      <window_info active="true" content_ui="combo" id="Project" order="4" sideWeight="0.46268657" visible="true" weight="0.24810892" />
       <window_info id="Web" order="3" side_tool="true" />
-      <window_info anchor="bottom" id="Find" order="10" weight="0.32888147" />
       <window_info anchor="right" id="Theme Preview" order="4" />
       <window_info id="Favorites" order="7" sideWeight="0.53731346" side_tool="true" weight="0.15204236" />
       <window_info anchor="bottom" id="Inspection" order="13" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="7" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="Find" order="10" weight="0.32888147" />
       <window_info anchor="bottom" id="Cvs" order="11" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="8" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="8" weight="0.25" />
@@ -406,16 +452,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/cn/linjinfu/pojo/Admin.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/linjinfu/controller/ArticlesController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="39" selection-start-line="12" selection-start-column="39" selection-end-line="12" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/linjinfu/controller/ArticlesController.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/cn/linjinfu/pojo/PageBean.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -490,13 +527,6 @@
         <state relative-caret-position="-2370" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/linjinfu/pojo/Article.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="22" column="27" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/user_page.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="331">
@@ -530,9 +560,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="243">
           <caret line="27" column="11" lean-forward="true" selection-start-line="27" selection-start-column="11" selection-end-line="27" selection-end-column="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -585,13 +612,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/user_article/articleView.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="828">
-          <caret line="82" lean-forward="true" selection-start-line="82" selection-end-line="82" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/user_article/articleWrite.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1329">
@@ -634,6 +654,27 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="3" column="21" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/linjinfu/pojo/user.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="21" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/user_article/articleView.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="83">
+          <caret line="94" column="32" selection-start-line="94" selection-start-column="32" selection-end-line="94" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/linjinfu/pojo/Article.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="26" column="4" selection-start-line="26" selection-start-column="4" selection-end-line="26" selection-end-column="4" />
         </state>
       </provider>
     </entry>
