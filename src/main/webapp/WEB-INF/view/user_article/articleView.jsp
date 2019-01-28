@@ -98,7 +98,7 @@
                     <span style="font-size:15px;">${words.lw_date}</span>
                 </div>
             </div>
-            <form action="<%=basePath%>/userArticle/deleteArticleWords.do?lw_id=${words.lw_id}&r_id=${article.r_id}"
+            <form hidden action="<%=basePath%>/userArticle/deleteArticleWords.do?lw_id=${words.lw_id}&r_id=${article.r_id}"
                   method="post">
                 <input type="submit" class="layui-btn layui-btn-danger" value="删除"></input>
             </form>

@@ -84,7 +84,7 @@
 
     <h5>
         <i class="fa fa-paper-plane-o fa-fw" style="color: #299A74"></i>
-        <span style="color: #299A74;"><strong>搜索结果</strong></span>
+        <span style="color: #299A74;"><strong>您搜索到的帖子</strong></span>
     </h5>
     <div class="table-responsive">
         <table class="table table-striped table-hover" id="countTable">

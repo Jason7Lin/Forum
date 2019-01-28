@@ -23,7 +23,7 @@
     <div style="margin-top: 60px;">
         <fieldset class="layui-elem-field layui-field-title">
             <legend style="margin-left: 20px;padding: 0 10px;text-align: left;width: 100px;border-bottom: none;">
-                <strong>帖子撰写</strong>
+                <strong>修改帖子</strong>
             </legend>
         </fieldset>
     </div>
@@ -31,34 +31,20 @@
     <!-- 编辑器的表单 -->
     <div class="layui-form">
         <form action="<%=basePath%>/" method="post">
-            <div class="layui-inline" style="margin-left: -10px;">
-
-                <label class="layui-form-label" style="padding-left: 0;"><strong>文章作者</strong></label>
-                <div class="layui-input-inline" style="margin-left:-255px;">
-                    <input type="text" name="r_author" id="r_author" value="${sessionScope.name}" class="layui-input"/>
-                </div>
-
-                <label class="layui-form-label" style="margin-left:169px;padding-left: 0;"><strong>发布日期</strong></label>
-                <div class="layui-input-inline" style="margin-left: 88px;">
-                    <input type="text" name="r_date" id="r_date" value="<%=nowDate%>" class="layui-input"
-                           readonly="readonly"/>
-                </div>
-            </div>
-            <hr style="margin-top: 0;"/>
+            <input name="r_id" id="r_id" value="${article.r_id}" hidden>
             <div class="layui-inline" style="margin-left: -10px;padding-left: 0;">
-
                 <label class="layui-form-label" style="padding-left: 0;"><strong>帖子简介</strong></label>
                 <div class="layui-input-inline" style="margin-left: -380px;width: 275px;">
-                    <input type="text" name="r_summary" id="r_summary" placeholder="请用简短的文字介绍一下你的帖子吧！"
+                    <input type="text" name="r_summary" id="r_summary" value="${article.r_summary}"
+                           placeholder="请用简短的文字介绍一下你的帖子吧！"
                            class="layui-input"/>
                 </div>
-
                 <label class="layui-form-label" style="margin-left:300px;padding-left: 0;"><strong>版块</strong></label>
                 <div class="layui-input-inline" style="margin-left: 100px;width: 100px">
                     <select name="r_module" id="r_module" lay-verify="required" lay-search="">
-                        <option value="" selected>请选择</option>
+                        <option value="">请选择</option>
                         <c:forEach items="${requestScope.moduleList}" var="module">
-                            <option value="${module.m_module}">${module.m_module}</option>
+                            <option value="${module.m_module}" <c:if test="${module.m_module == article.r_module}">selected</c:if> >${module.m_module}</option>
                         </c:forEach>
                     </select>
                 </div>
@@ -67,8 +53,9 @@
             <br/>
             <label><strong>文章内容</strong></label>
             <!-- 添加Markdown的容器 -->
-            <div id="editormd">
-                <textarea class="editormd-markdown-textarea" name="editormd-markdown-doc"></textarea>
+            <div id="editormd" va>
+                <textarea class="editormd-markdown-textarea"
+                          name="editormd-markdown-doc">${article.r_content}</textarea>
                 <textarea class="editormd-html-textarea" name="editormd-html-code"></textarea>
             </div>
             <div class="layui-inline" style="margin-top: 20px;">
@@ -125,7 +112,7 @@
         var r_date = $("#r_date").val();
         var r_status = 2;
         $.ajax({
-            url: '<%=basePath%>/userArticle/insertArticle.do',
+            url: '<%=basePath%>/adminArticle/updateArticle.do',
             type: 'POST',
             data: {
                 r_id: r_id,
@@ -144,6 +131,7 @@
             }
         });
     });
+
 
 </script>
 

@@ -17,19 +17,36 @@
     <br/>
     <fieldset class="layui-elem-field layui-field-title">
         <legend style="margin-left: 20px;padding: 0 10px;text-align: left;width: 170px;border-bottom: none;">
-            <strong>浏览帖子</strong></legend>
+            <strong>帖子管理</strong></legend>
     </fieldset>
+
+    <!--新增专属管理员精品贴 按钮-->
+    <hr style="margin-top: 0;"/>
+    <br/>
+    <h5 style="margin-top: -20px;">
+        <i class="fa fa-paper-plane-o fa-fw" style="color: #299A74"></i>
+        <span style="color: #299A74;"><strong>新增专属管理员精品贴</strong></span>
+    </h5>
+    <div class="layui-inline" style="margin-left:350px;padding-left: 0;">
+        <a href="<%=basePath%>/adminArticle/toArticleWrite.do">
+            <button type="button" id="addBtn" class="layui-btn layui-btn">新增帖子
+            </button>
+        </a>
+    </div>
+    <br/>
+    <br/>
     <br/>
 
+    <!--搜索贴子 表单-->
+    <hr style="margin-top: 0;"/>
+    <br/>
     <h5 style="margin-top: -20px;">
         <i class="fa fa-paper-plane-o fa-fw" style="color: #299A74"></i>
         <span style="color: #299A74;"><strong>搜索帖子</strong></span>
     </h5>
-    <hr style="margin-top: 0;"/>
-
     <div class="form table">
         <div>
-            <form class="layui-form form-inline" action="<%=basePath%>/userArticle/findByPage.do" role="form"
+            <form class="layui-form form-inline" action="<%=basePath%>/adminArticle/findByPage.do" role="form"
                   method="post">
                 <div class="layui-form-item">
                     <label class="layui-form-label"
@@ -72,16 +89,19 @@
                             </option>
                         </select>
                     </div>
-                    <div class="layui-input-inline" style="margin-left: 350px;">
-                        <button class="layui-btn" type="submit">查询</button>
-                        <button type="reset" class="layui-btn layui-btn-primary">重置</button>
-                    </div>
+                </div>
+                <br/>
+                <div class="layui-input-inline" style="margin-left: 350px;">
+                    <button class="layui-btn" type="submit">查询</button>
+                    <button type="reset" class="layui-btn layui-btn-primary">重置</button>
                 </div>
             </form>
         </div>
     </div>
-    <hr style="margin-top: 0;"/>
+    <br/>
 
+    <!--遍历page.beanList帖子搜索结果-->
+    <hr style="margin-top: 0;"/>
     <h5>
         <i class="fa fa-paper-plane-o fa-fw" style="color: #299A74"></i>
         <span style="color: #299A74;"><strong>搜索结果</strong></span>
@@ -114,9 +134,32 @@
                     <td>${article.r_author}</td>
                     <td>${article.r_date}</td>
                     <td>
-                        <a href="<%=basePath%>/userArticle/toArticleView.do?r_id=${article.r_id}">
+                        <a href="<%=basePath%>/adminArticle/toArticleView.do?r_id=${article.r_id}">
                             <button type="button" class="layui-btn layui-btn-sm">查看</button>
                         </a>
+                        <a href="<%=basePath%>/adminArticle/toEditPage.do?r_id=${article.r_id}">
+                            <button type="button" class="layui-btn layui-btn-sm layui-btn-normal">编辑</button>
+                        </a>
+                        <a data-toggle="modal" data-target="#trashModal">
+                            <button type="button" onclick="return trash(${article.r_id})"
+                                    class="layui-btn layui-btn-sm layui-btn-danger">
+                                删除
+                            </button>
+                        </a>
+                        <c:if test="${article.r_status=='1'}">
+                            <a href="<%=basePath%>/adminArticle/updateArticleToNormalById.do?r_id=${article.r_id}">
+                                <button type="button" class="layui-btn layui-btn-sm">去精品</button>
+                            </a>
+                        </c:if>
+                        <c:if test="${article.r_status=='2'}">
+                            <a href="<%=basePath%>/adminArticle/updateArticleToGreatById.do?r_id=${article.r_id}">
+                                <button type="button" class="layui-btn layui-btn-sm layui-btn-warm">加精品</button>
+                            </a>
+                        </c:if>
+                        <!--hidden-->
+                        <button hidden type="button" onclick="return clean(${article.r_id});" class="layui-btn layui-btn-sm layui-btn-danger">
+                            删除2
+                        </button>
                     </td>
                 </tr>
             </c:forEach>
@@ -124,9 +167,8 @@
         </table>
     </div>
 
-    <!--一个空格都是致命的，格式化害人啊-->
     <form class="listForm" method="post"
-          action="<%=basePath%>/userArticle/findByPage.do?r_author=${article.r_author}&r_summary=${article.r_summary}&r_module=${article.r_module}&r_status=${article.r_status}">
+          action="<%=basePath%>/adminArticle/findByPage.do?r_author=${article.r_author}&r_summary=${article.r_summary}&r_module=${article.r_module}&r_status=${article.r_status}">
         <div class="row">
             <div class="form-inline">
                 <label style="font-size:14px;margin-top:22px;">
@@ -164,11 +206,11 @@
 
                 <ul class="pagination" style="float:right;">
                     <li>
-                        <a href="<%=basePath%>/userArticle/findByPage.do?pageCode=1&r_author=${article.r_author}&r_summary=${article.r_summary}&r_module=${article.r_module}&r_status=${article.r_status}"><strong>首页</strong></a>
+                        <a href="<%=basePath%>/adminArticle/findByPage.do?pageCode=1&r_author=${article.r_author}&r_summary=${article.r_summary}&r_module=${article.r_module}&r_status=${article.r_status}"><strong>首页</strong></a>
                     </li>
                     <li>
                         <c:if test="${requestScope.page.pageCode > 2}">
-                            <a href="<%=basePath%>/userArticle/findByPage.do?pageCode=${requestScope.page.pageCode - 1}&r_author=${article.r_author}&r_summary=${article.r_summary}&r_module=${article.r_module}&r_status=${article.r_status}">&laquo;</a>
+                            <a href="<%=basePath%>/adminArticle/findByPage.do?pageCode=${requestScope.page.pageCode - 1}&r_author=${article.r_author}&r_summary=${article.r_summary}&r_module=${article.r_module}&r_status=${article.r_status}">&laquo;</a>
                         </c:if>
                     </li>
 
@@ -204,23 +246,47 @@
                         </c:if>
                         <c:if test="${i != requestScope.page.pageCode}">
                             <li>
-                                <a href="<%=basePath%>/userArticle/findByPage.do?pageCode=${i}&pageSize=${requestScope.page.pageSize}&r_author=${article.r_author}&r_summary=${article.r_summary}&r_module=${article.r_module}&r_status=${article.r_status}">${i}</a>
+                                <a href="<%=basePath%>/adminArticle/findByPage.do?pageCode=${i}&pageSize=${requestScope.page.pageSize}&r_author=${article.r_author}&r_summary=${article.r_summary}&r_module=${article.r_module}&r_status=${article.r_status}">${i}</a>
                             </li>
                         </c:if>
                     </c:forEach>
 
                     <li>
                         <c:if test="${requestScope.page.pageCode < requestScope.page.totalPage}">
-                            <a href="<%=basePath%>/userArticle/findByPage.do?pageCode=${requestScope.page.pageCode + 1}&r_author=${article.r_author}&r_summary=${article.r_summary}&r_module=${article.r_module}&r_status=${article.r_status}">&raquo;</a>
+                            <a href="<%=basePath%>/adminArticle/findByPage.do?pageCode=${requestScope.page.pageCode + 1}&r_author=${article.r_author}&r_summary=${article.r_summary}&r_module=${article.r_module}&r_status=${article.r_status}">&raquo;</a>
                         </c:if>
                     </li>
                     <li>
-                        <a href="<%=basePath%>/userArticle/findByPage.do?pageCode=${requestScope.page.totalPage}&r_author=${article.r_author}&r_summary=${article.r_summary}&r_module=${article.r_module}&r_status=${article.r_status}"><strong>末页</strong></a>
+                        <a href="<%=basePath%>/adminArticle/findByPage.do?pageCode=${requestScope.page.totalPage}&r_author=${article.r_author}&r_summary=${article.r_summary}&r_module=${article.r_module}&r_status=${article.r_status}"><strong>末页</strong></a>
                     </li>
                 </ul>
             </div>
         </div>
     </form>
+
+    <!-- 删除的模态框 删除1 -->
+    <div class="modal fade" id="trashModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!-- 模糊框头部 -->
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;
+                    </button>
+                    <h4 class="modal-title">警告！</h4>
+                </div>
+                <!-- 模糊框主体 -->
+                <div class="modal-body">
+                    <strong>你确定要删除吗？</strong>
+                </div>
+                <!-- 模糊框底部 -->
+                <div class="modal-footer">
+                    <button type="button" class="delSure btn btn-info" data-dismiss="modal">确定</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
 
 </body>
@@ -233,73 +299,24 @@
     });
 </script>
 <script type="text/javascript">
-    //删除
-    function clean(r_id) {
-        layer.open({
-            title: '警告信息',
-            content: '你确定要删除？（文章将保存在回收站中）',
-            btn: ['确定', '取消'],
-            btn1: function (index, layero) {
+
+    // 删除1
+    function trash(r_id) {
+        if (!r_id) {
+            alert("error");
+        } else {
+            $(".delSure").click(function () {
                 $.ajax({
-                    url: '<%=basePath%>/article/clean.do',
+                    url: '<%=basePath%>/adminArticle/deleteArticle.do',
                     type: 'POST',
                     data: {r_id: r_id},
                     success: function (data) {
-                        layer.open({
-                            title: '提示信息',
-                            content: '删除成功',
-                            time: 2000
-                        });
                         $("body").html(data);
-                    },
-                    error: function () {
-                        layer.open({
-                            title: '提示信息',
-                            content: '删除失败'
-                        });
                     }
                 });
-                layer.close(index);
-            }
-        });
-    }
-
-    //编辑
-    function edit(r_id) {
-        $.ajax({
-            url: '<%=basePath%>/article/toEditPage.do',
-            type: 'GET',
-            data: {r_id: r_id},
-            success: function (data) {
-                $("body").html(data);
-            },
-            error: function () {
-                layer.open({
-                    title: '提示信息',
-                    content: '发生错误'
-                });
-            }
-        });
-    }
-
-    $("#cleanBtnMore").click(function () {
-        layer.open({
-            title: '警告信息',
-            content: '你确定要删除所选文章吗？',
-            btn: ['确定', '取消'],
-            btn1: function (index, layero) {
-                layer.close(index);
-            }
-        });
-    });
-    //全选
-    var all = $("#all");
-    var id = $("#a_id");
-    all.onclick = function () {
-        for (var i = 0; i < id.length; i++) {
-            id[i].checked = all.checked;
+            });
         }
     }
-</script>
 
+</script>
 </html>

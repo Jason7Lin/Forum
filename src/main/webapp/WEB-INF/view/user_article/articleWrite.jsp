@@ -123,7 +123,7 @@
         var r_module = $("#r_module").val();
         var r_content = markdown.getMarkdown();
         var r_date = $("#r_date").val();
-        var r_status = 0;
+        var r_status = 2;
         $.ajax({
             url: '<%=basePath%>/userArticle/insertArticle.do',
             type: 'POST',

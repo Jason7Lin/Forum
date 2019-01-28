@@ -19,98 +19,6 @@ public class UserArticleController {
     @Autowired
     private UserArticleService service;
 
-    /*运行错误
-
-    //声明一个变量用于区别我访问的是文章管理页面，还是回收站页面
-    //0：访问的是全部帖子页面     1：表示访问的是分类帖子页面      2：表示访问的是我的帖子页面
-
-    private int goId = 0;
-
-
-    @RequestMapping(value = "toArticleManage.do")
-    public String toArticleManage(Article article, HttpServletRequest request, HttpSession session, Model model,
-                                  @RequestParam(value = "pageCode", required = false, defaultValue = "1") int pageCode,
-                                  @RequestParam(value = "pageSize", required = false, defaultValue = "10") int pageSize) {
-        goId = 0;
-        return "forward:findByPage.do";
-    }
-
-    @RequestMapping(value = "toArticleManageModule.do")
-    public String toArticleManageModule(Article article, HttpServletRequest request, HttpSession session, Model model,
-                                        @RequestParam(value = "pageCode", required = false, defaultValue = "1") int pageCode,
-                                        @RequestParam(value = "pageSize", required = false, defaultValue = "10") int pageSize) throws Exception {
-        goId = 1;
-
-        String module = request.getParameter("module");
-        if (module != null) {
-            session.setAttribute("module", module);
-        } else {
-            throw new Exception("NULL");
-        }
-        return "forward:findByPage.do";
-    }
-
-    @RequestMapping(value = "/toArticleManageMe.do")
-    public String toArticleManageMe(Article article, HttpServletRequest request, HttpSession session, Model model,
-                                    @RequestParam(value = "pageCode", required = false, defaultValue = "1") int pageCode,
-                                    @RequestParam(value = "pageSize", required = false, defaultValue = "10") int pageSize) throws Exception {
-        goId = 2;
-
-        String author = request.getParameter("author");
-        if (author != null) {
-            session.setAttribute("author", author);
-        } else {
-            throw new Exception("NULL");
-        }
-        return "forward:findByPage.do";
-    }
-
-
-    @RequestMapping("/findByPage.do")
-    public String findByPage(Article article, HttpSession session, Model model,
-                             @RequestParam(value = "pageCode", required = false, defaultValue = "1") int pageCode,
-                             @RequestParam(value = "pageSize", required = false, defaultValue = "10") int pageSize) {
-
-        //封装好的PageBean
-        PageBean page;
-
-
-        //根据模块的识别码，进行不同的条件查询，跳转到不同的页面
-        switch (goId) {
-            //全部帖子
-            case 0:
-                //article由查询表单而来，再回显至查询表单
-                model.addAttribute("article", article);
-                //调用findByPage
-                page = service.findByPage(article, pageCode, pageSize);
-                model.addAttribute("page", page);
-                return "view/user_article/articleManage";
-            //分类帖子
-            case 1:
-                String module = (String) session.getAttribute("module");
-
-                //article由module而来
-                article.setR_module(module);
-                //回显给页面描述版块
-                model.addAttribute("article", article);
-                page = service.findByPage(article, pageCode, pageSize);
-                model.addAttribute("page", page);
-                return "view/user_article/articleManageModule";
-            //我的帖子
-            case 2:
-                String author = (String) session.getAttribute("author");
-
-                //article由author而来
-                article.setR_author(author);
-                page = service.findByPage(article, pageCode, pageSize);
-                model.addAttribute("page", page);
-                return "view/user_article/articleManageMe";
-            default:
-                return null;
-        }
-    }
-     */
-
     @RequestMapping("/findByPage.do")
     public String findByPage(Article article, HttpSession session, HttpServletRequest request, Model model,
                              @RequestParam(value = "pageCode", required = false, defaultValue = "1") int pageCode,
@@ -185,9 +93,8 @@ public class UserArticleController {
                     status = (String) session.getAttribute("status");
                 }
 
-                int status1=Integer.parseInt(status);
                 //article由status1而来
-                article.setR_status(status1);
+                article.setR_status(status);
                 page = service.findByPage(article, pageCode, pageSize);
                 model.addAttribute("page", page);
                 return "view/user_article/articleManageGreat";
@@ -299,4 +206,3 @@ public class UserArticleController {
     }
 
 }
-//userArticle

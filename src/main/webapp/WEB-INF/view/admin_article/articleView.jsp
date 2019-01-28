@@ -56,7 +56,7 @@
     <!-- 留言的表单 -->
     <div>
         <br/>
-        <form class="layui-form" action="<%=basePath%>/userArticle/saveArticleWords.do" method="post">
+        <form class="layui-form" action="<%=basePath%>/adminArticle/saveArticleWords.do" method="post">
             <input name="lw_name" id="lw_name" value="${sessionScope.name}" hidden="hidden"/>
             <input name="lw_date" id="lw_date" value="<%=nowDate%>" hidden="hidden"/>
             <input name="lw_for_name" id="lw_for_name" value="${article.r_author}" hidden="hidden"/>
@@ -98,7 +98,7 @@
                     <span style="font-size:15px;">${words.lw_date}</span>
                 </div>
             </div>
-            <form hidden action="<%=basePath%>/userArticle/deleteArticleWords.do?lw_id=${words.lw_id}&r_id=${article.r_id}"
+            <form action="<%=basePath%>/adminArticle/deleteArticleWords.do?lw_id=${words.lw_id}&r_id=${article.r_id}"
                   method="post">
                 <input type="submit" class="layui-btn layui-btn-danger" value="删除"></input>
             </form>

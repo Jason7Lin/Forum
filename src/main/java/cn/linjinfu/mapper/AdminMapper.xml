@@ -62,9 +62,30 @@
             <if test="a_sign !=null and a_sign !=''">
                 a_sign = #{a_sign} ,
             </if>
+            <if test="a_black !=null and a_black !=''">
+                a_black = #{a_black} ,
+            </if>
         </set>
         <where>
             a_id = #{a_id}
         </where>
     </update>
+
+    <select id="findByPage" parameterType="Admin" resultType="admin">
+        SELECT * FROM admin
+        <where>
+            <if test="a_name != null and a_name !=''">
+                AND a_name LIKE CONCAT('%', #{a_name}, '%')
+            </if>
+            <if test="a_sex != null and a_sex !=''">
+                AND a_sex = #{a_sex}
+            </if>
+            <if test="a_age != null and a_age !=''">
+                AND a_age = #{a_age}
+            </if>
+            AND a_key = 0
+        </where>
+    </select>
+
+
 </mapper>

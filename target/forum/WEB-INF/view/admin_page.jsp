@@ -42,7 +42,7 @@
                     <strong>${sessionScope.name}</strong>
                 </a>
                 <dl class="layui-nav-child">
-                    <dd><a href="" style="text-decoration: none;"><strong>基本资料</strong></a></dd>
+                    <dd><a href="javascript:;" onclick="javascript: toUserInfo();" style="text-decoration: none;"><strong>基本资料</strong></a></dd>
                     <dd><a href="" style="text-decoration: none;"><strong>安全设置</strong></a></dd>
                     <hr/>
                     <dd>
@@ -67,27 +67,21 @@
             <ul class="layui-nav layui-nav-tree" lay-filter="test">
 
                 <li class="layui-nav-item">
-                    <a href="javascript:;" onclick="javascript: toAllAdmin();" style="text-decoration: none;">
+                    <a href="javascript:;" onclick="javascript: toUserManage();" style="text-decoration: none;">
                         <strong>
-                            <span class="fa fa-twitter fa-fw"></span>&nbsp;&nbsp;&nbsp;用户管理
+                            <span class="fa fa-user fa-fw"></span>&nbsp;&nbsp;&nbsp;用户管理
                         </strong>
                     </a>
                 </li>
 
                 <li class="layui-nav-item">
-                    <a href="javascript:;" onclick="javascript: toGreatArticle();" style="text-decoration: none;">
+                    <a href="javascript:;" onclick="javascript: toArticleManage();" style="text-decoration: none;">
                         <strong>
-                            <span class="fa fa-send fa-fw"></span>&nbsp;&nbsp;&nbsp;精品帖子
+                            <span class="fa fa-send fa-fw"></span>&nbsp;&nbsp;&nbsp;帖子管理
                         </strong>
                     </a>
                 </li>
-                <li class="layui-nav-item">
-                    <a href="javascript:;" onclick="javascript: toMyArticle();" style="text-decoration: none;">
-                        <strong>
-                            <span class="fa fa-user fa-fw"></span>&nbsp;&nbsp;&nbsp;我的帖子
-                        </strong>
-                    </a>
-                </li>
+
             </ul>
         </div>
     </div>
@@ -97,75 +91,32 @@
     <div class="layui-body">
         <div id="content">
             <div style="font-size: 45px;color: #1D9D73;margin-top: 300px;" class="text-center">
-                <strong>欢迎您进入校园论坛系统</strong></div>
+                <strong>欢迎您进入校园论坛系统管理后台</strong></div>
         </div>
     </div>
 
 </div>
 </body>
 <script src="<%=basePath%>/static/layui/layui.js"></script>
-<script src="<%=basePath%>/static/js/bootstrap.min.js"></script>
 <script src="<%=basePath%>/static/js/jquery-3.3.1.min.js"></script>
+<script src="<%=basePath%>/static/js/bootstrap.min.js"></script>
+
 <script type="text/javascript">
     layui.use('element', function () {
         var element = layui.element;
     });
 </script>
 <script type="text/javascript">
-    function toAllArticle() {
-        document.getElementById("content").innerHTML = "<object type=\"text/html\" data=\"<%=basePath%>/userArticle/findByPage.do?key=0\" width=\"100%\" height=\"100%\"></object>";
+    function toUserInfo() {
+        document.getElementById("content").innerHTML = "<object type=\"text/html\" data=\"<%=basePath%>/admin/findUserInfo.do?a_name=${sessionScope.name}\" width=\"100%\" height=\"100%\"></object>";
     }
 
-    function toMyArticle() {
-        document.getElementById("content").innerHTML = "<object type=\"text/html\" data=\"<%=basePath%>/userArticle/findByPage.do?author=${sessionScope.name}&key=1\" width=\"100%\" height=\"100%\"></object>";
+    function toUserManage() {
+        document.getElementById("content").innerHTML = "<object type=\"text/html\" data=\"<%=basePath%>/admin/toUserManage.do\" width=\"100%\" height=\"100%\"></object>";
     }
 
-    function toGreatArticle() {
-        document.getElementById("content").innerHTML = "<object type=\"text/html\" data=\"<%=basePath%>/userArticle/findByPage.do?status=1&key=3\" width=\"100%\" height=\"100%\"></object>";
-    }
-
-    function toModuleArticle01() {
-        document.getElementById("content").innerHTML = "<object type=\"text/html\" data=\"<%=basePath%>/userArticle/findByPage.do?module=校园快讯&key=2\" width=\"100%\" height=\"100%\"></object>";
-    }
-
-    function toModuleArticle02() {
-        document.getElementById("content").innerHTML = "<object type=\"text/html\" data=\"<%=basePath%>/userArticle/findByPage.do?module=新生专区&key=2\" width=\"100%\" height=\"100%\"></object>";
-    }
-
-    function toModuleArticle03() {
-        document.getElementById("content").innerHTML = "<object type=\"text/html\" data=\"<%=basePath%>/userArticle/findByPage.do?module=生活信息&key=2\" width=\"100%\" height=\"100%\"></object>";
-    }
-
-    function toModuleArticle04() {
-        document.getElementById("content").innerHTML = "<object type=\"text/html\" data=\"<%=basePath%>/userArticle/findByPage.do?module=知识海洋&key=2\" width=\"100%\" height=\"100%\"></object>";
-    }
-
-    function toModuleArticle05() {
-        document.getElementById("content").innerHTML = "<object type=\"text/html\" data=\"<%=basePath%>/userArticle/findByPage.do?module=求职就业&key=2\" width=\"100%\" height=\"100%\"></object>";
-    }
-
-    function toModuleArticle06() {
-        document.getElementById("content").innerHTML = "<object type=\"text/html\" data=\"<%=basePath%>/userArticle/findByPage.do?module=社团组织&key=2\" width=\"100%\" height=\"100%\"></object>";
-    }
-
-    function toModuleArticle07() {
-        document.getElementById("content").innerHTML = "<object type=\"text/html\" data=\"<%=basePath%>/userArticle/findByPage.do?module=考研地带&key=2\" width=\"100%\" height=\"100%\"></object>";
-    }
-
-    function toModuleArticle08() {
-        document.getElementById("content").innerHTML = "<object type=\"text/html\" data=\"<%=basePath%>/userArticle/findByPage.do?module=休闲娱乐&key=2\" width=\"100%\" height=\"100%\"></object>";
-    }
-
-    function toModuleArticle09() {
-        document.getElementById("content").innerHTML = "<object type=\"text/html\" data=\"<%=basePath%>/userArticle/findByPage.do?module=游戏运动&key=2\" width=\"100%\" height=\"100%\"></object>";
-    }
-
-    function toModuleArticle10() {
-        document.getElementById("content").innerHTML = "<object type=\"text/html\" data=\"<%=basePath%>/userArticle/findByPage.do?module=学术科学&key=2\" width=\"100%\" height=\"100%\"></object>";
-    }
-
-    function toModuleArticle11() {
-        document.getElementById("content").innerHTML = "<object type=\"text/html\" data=\"<%=basePath%>/userArticle/findByPage.do?module=电脑技术&key=2\" width=\"100%\" height=\"100%\"></object>";
+    function toArticleManage() {
+        document.getElementById("content").innerHTML = "<object type=\"text/html\" data=\"<%=basePath%>/adminArticle/toArticleManage.do\" width=\"100%\" height=\"100%\"></object>";
     }
 
 </script>

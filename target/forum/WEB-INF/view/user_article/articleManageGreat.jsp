@@ -41,7 +41,7 @@
                     <c:if test="${article.r_status=='1'}">
                         <td><i class="layui-icon" style="font-size: 18px; color: #2aa198;">&#xe658;</i></td>
                     </c:if>
-                    <c:if test="${article.r_status=='0'}">
+                    <c:if test="${article.r_status=='2'}">
                         <td><i class="layui-icon" style="font-size: 18px; color: #2aa198;">&#xe600;</i></td>
                     </c:if>
                     <td>${article.r_module}</td>

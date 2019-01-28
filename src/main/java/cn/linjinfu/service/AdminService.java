@@ -1,6 +1,7 @@
 package cn.linjinfu.service;
 
 import cn.linjinfu.pojo.Admin;
+import cn.linjinfu.pojo.PageBean;
 
 public interface AdminService {
 
@@ -13,4 +14,7 @@ public interface AdminService {
     Admin findUserById(int a_id);
 
     void updateUserById(Admin admin);
+
+    PageBean<Admin> findByPage(Admin admin, int pageCode, int pageSize);
+
 }

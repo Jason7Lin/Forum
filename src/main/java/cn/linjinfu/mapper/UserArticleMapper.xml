@@ -9,7 +9,7 @@
         <result column="r_summary" property="r_summary" jdbcType="VARCHAR"/>
         <result column="r_content" property="r_content"/>
         <result column="r_date" property="r_date" jdbcType="VARCHAR"/>
-        <result column="r_status" property="r_status" jdbcType="INTEGER"/>
+        <result column="r_status" property="r_status" jdbcType="VARCHAR"/>
         <result column="r_module" property="r_module" jdbcType="VARCHAR"/>
     </resultMap>
 
@@ -86,7 +86,7 @@
             <if test="r_date !=null and r_date != ''">
                 r_date = #{r_date} ,
             </if>
-            <if test="r_status !=null">
+            <if test="r_status !=null and r_status !=''">
                 r_status = #{r_status} ,
             </if>
         </set>

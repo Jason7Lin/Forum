@@ -21,8 +21,8 @@ public class Article implements Serializable {
     private String r_date;
     // 文章模块
     private String r_module;
-    // 文章状态 --> 0：普通    1：精品
-    private int r_status;
+    // 文章状态 --> 2：普通    1：精品
+    private String r_status;
 
 
 
@@ -80,12 +80,11 @@ public class Article implements Serializable {
         this.r_date = r_date;
     }
 
-    public int getR_status() {
+    public String getR_status() {
         return r_status;
     }
 
-    public void setR_status(int r_status) {
+    public void setR_status(String r_status) {
         this.r_status = r_status;
     }
-
 }

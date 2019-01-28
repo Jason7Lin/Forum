@@ -48,7 +48,7 @@
                     <c:if test="${article.r_status=='1'}">
                         <td><i class="layui-icon" style="font-size: 18px; color: #2aa198;">&#xe658;</i></td>
                     </c:if>
-                    <c:if test="${article.r_status=='0'}">
+                    <c:if test="${article.r_status=='2'}">
                         <td><i class="layui-icon" style="font-size: 18px; color: #2aa198;">&#xe600;</i></td>
                     </c:if>
                     <td>${article.r_module}</td>
@@ -62,7 +62,7 @@
                         <a href="<%=basePath%>/userArticle/toEditPage.do?r_id=${article.r_id}">
                             <button type="button" class="layui-btn layui-btn-sm layui-btn-normal">编辑</button>
                         </a>
-                        <%--<button type="button" onclick="return clean(${article.r_id});"--%>
+                        <%--删除2<button type="button" onclick="return clean(${article.r_id});"--%>
                                 <%--class="layui-btn layui-btn-sm layui-btn-danger">--%>
                             <%--删除--%>
                         <%--</button>--%>
@@ -208,7 +208,7 @@
 </script>
 <script type="text/javascript">
 
-    // 删除2
+    // 删除1
     function trash(r_id) {
         if (!r_id) {
             alert("error");
@@ -226,7 +226,7 @@
         }
     }
 
-    //删除1
+    //删除2
     function clean(r_id) {
         layer.open({
             title: '警告信息',
