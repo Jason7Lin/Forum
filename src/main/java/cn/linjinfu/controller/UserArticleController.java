@@ -134,6 +134,10 @@ public class UserArticleController {
         switch (key) {
             //全部帖子
             case "0":
+                //module数据
+                List<Module> list = service.selectModuleAll();
+                model.addAttribute("moduleList", list);
+                //模块匹配
                 //article由查询表单而来，再回显至查询表单
                 model.addAttribute("article", article);
                 //调用findByPage
