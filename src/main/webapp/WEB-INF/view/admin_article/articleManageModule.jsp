@@ -17,47 +17,11 @@
     <br/>
     <fieldset class="layui-elem-field layui-field-title">
         <legend style="margin-left: 20px;padding: 0 10px;text-align: left;width: 170px;border-bottom: none;">
-            <strong>浏览帖子</strong></legend>
+            <strong>${requestScope.article.r_module}版块</strong></legend>
     </fieldset>
-    <br/>
 
-    <h5 style="margin-top: -20px;">
-        <i class="fa fa-paper-plane-o fa-fw" style="color: #299A74"></i>
-        <span style="color: #299A74;"><strong>搜索帖子</strong></span>
-    </h5>
     <hr style="margin-top: 0;"/>
 
-    <div class="form table">
-        <div>
-            <form class="layui-form form-inline" action="<%=basePath%>/userArticle/findByPage.do" role="form"
-                  method="post">
-                <div class="layui-form-item">
-                    <label class="layui-form-label"
-                           style="margin-left: -10px;padding-left:0;"><strong>楼主</strong></label>
-                    <div class="layui-input-inline">
-                        <input name="r_author" value="${article.r_author}" placeholder="请输入楼主名字查询" class="layui-input"
-                               type="text">
-                    </div>
-                    <label class="layui-form-label"
-                           style="margin-left: -10px;padding-left:0;"><strong>简介</strong></label>
-                    <div class="layui-input-inline">
-                        <input name="r_summary" value="${article.r_summary}" placeholder="请输入帖子简介查询" class="layui-input"
-                               type="text">
-                    </div>
-                    <div class="layui-input-inline" style="margin-left: 50px;">
-                        <button class="layui-btn" type="submit">查询</button>
-                        <button type="reset" class="layui-btn layui-btn-primary">重置</button>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-    <hr style="margin-top: 0;"/>
-
-    <h5>
-        <i class="fa fa-paper-plane-o fa-fw" style="color: #299A74"></i>
-        <span style="color: #299A74;"><strong>您搜索到的帖子</strong></span>
-    </h5>
     <div class="table-responsive">
         <table class="table table-striped table-hover" id="countTable">
             <thead>
@@ -121,10 +85,10 @@
                     <strong>条</strong>
                     &nbsp;
                     &nbsp;
-                    <!--无效-->
-                    <strong>到第</strong>&nbsp;
-                    <input type="text" size="3" id="page" name="pageCode" class="form-control input-sm" style="width:11%"/>
-                    &nbsp;<strong>页</strong>&nbsp;
+                    <strong>到第</strong>&nbsp;<input type="text" size="3" id="page" name="pageCode"
+                                                    class="form-control input-sm"
+                                                    style="width:11%"/>&nbsp;<strong>页</strong>
+                    &nbsp;
                     <button type="submit" class="btn btn-sm btn-info">GO!</button>
                 </label>
 

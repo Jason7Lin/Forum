@@ -17,52 +17,23 @@
     <br/>
     <fieldset class="layui-elem-field layui-field-title">
         <legend style="margin-left: 20px;padding: 0 10px;text-align: left;width: 170px;border-bottom: none;">
-            <strong>浏览帖子</strong></legend>
+            <strong>我发布的帖子</strong></legend>
     </fieldset>
-    <br/>
 
-    <h5 style="margin-top: -20px;">
-        <i class="fa fa-paper-plane-o fa-fw" style="color: #299A74"></i>
-        <span style="color: #299A74;"><strong>搜索帖子</strong></span>
-    </h5>
-    <hr style="margin-top: 0;"/>
-
-    <div class="form table">
-        <div>
-            <form class="layui-form form-inline" action="<%=basePath%>/userArticle/findByPage.do" role="form"
-                  method="post">
-                <div class="layui-form-item">
-                    <label class="layui-form-label"
-                           style="margin-left: -10px;padding-left:0;"><strong>楼主</strong></label>
-                    <div class="layui-input-inline">
-                        <input name="r_author" value="${article.r_author}" placeholder="请输入楼主名字查询" class="layui-input"
-                               type="text">
-                    </div>
-                    <label class="layui-form-label"
-                           style="margin-left: -10px;padding-left:0;"><strong>简介</strong></label>
-                    <div class="layui-input-inline">
-                        <input name="r_summary" value="${article.r_summary}" placeholder="请输入帖子简介查询" class="layui-input"
-                               type="text">
-                    </div>
-                    <div class="layui-input-inline" style="margin-left: 50px;">
-                        <button class="layui-btn" type="submit">查询</button>
-                        <button type="reset" class="layui-btn layui-btn-primary">重置</button>
-                    </div>
-                </div>
-            </form>
-        </div>
+    <div class="layui-inline" style="margin-left:450px;padding-left: 0;">
+        <a href="<%=basePath%>/userArticle/toArticleWrite.do">
+            <button type="button" id="addBtn" class="layui-btn layui-btn">新增帖子</button>
+        </a>
     </div>
     <hr style="margin-top: 0;"/>
 
-    <h5>
-        <i class="fa fa-paper-plane-o fa-fw" style="color: #299A74"></i>
-        <span style="color: #299A74;"><strong>您搜索到的帖子</strong></span>
-    </h5>
     <div class="table-responsive">
         <table class="table table-striped table-hover" id="countTable">
             <thead>
             <tr>
-                <th style="text-align:center;">精品&nbsp;&nbsp;<i class="layui-icon" style="font-size: 18px; color: #2aa198;">&#xe658;</i></th>
+                <th style="text-align:center;">精品&nbsp;&nbsp;<i class="layui-icon"
+                                                                style="font-size: 18px; color: #2aa198;">&#xe658;</i>
+                </th>
                 <th style="text-align:center;">所属版块</th>
                 <th style="text-align: center">帖子简介</th>
                 <th style="text-align: center">帖子楼主</th>
@@ -87,6 +58,19 @@
                     <td>
                         <a href="<%=basePath%>/userArticle/toArticleView.do?r_id=${article.r_id}">
                             <button type="button" class="layui-btn layui-btn-sm">查看</button>
+                        </a>
+                        <a href="<%=basePath%>/userArticle/toEditPage.do?r_id=${article.r_id}">
+                            <button type="button" class="layui-btn layui-btn-sm layui-btn-normal">编辑</button>
+                        </a>
+                        <%--<button type="button" onclick="return clean(${article.r_id});"--%>
+                                <%--class="layui-btn layui-btn-sm layui-btn-danger">--%>
+                            <%--删除--%>
+                        <%--</button>--%>
+                        <a data-toggle="modal" data-target="#trashModal">
+                            <button type="button" onclick="return trash(${article.r_id})"
+                                    class="layui-btn layui-btn-sm layui-btn-danger">
+                                删除
+                            </button>
                         </a>
                     </td>
                 </tr>
@@ -121,10 +105,10 @@
                     <strong>条</strong>
                     &nbsp;
                     &nbsp;
-                    <!--无效-->
-                    <strong>到第</strong>&nbsp;
-                    <input type="text" size="3" id="page" name="pageCode" class="form-control input-sm" style="width:11%"/>
-                    &nbsp;<strong>页</strong>&nbsp;
+                    <strong>到第</strong>&nbsp;<input type="text" size="3" id="page" name="pageCode"
+                                                    class="form-control input-sm"
+                                                    style="width:11%"/>&nbsp;<strong>页</strong>
+                    &nbsp;
                     <button type="submit" class="btn btn-sm btn-info">GO!</button>
                 </label>
 
@@ -187,6 +171,30 @@
             </div>
         </div>
     </form>
+
+    <!-- 删除的模态框 删除1 -->
+    <div class="modal fade" id="trashModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!-- 模糊框头部 -->
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;
+                    </button>
+                    <h4 class="modal-title">警告！</h4>
+                </div>
+                <!-- 模糊框主体 -->
+                <div class="modal-body">
+                    <strong>你确定要删除吗？</strong>
+                </div>
+                <!-- 模糊框底部 -->
+                <div class="modal-footer">
+                    <button type="button" class="delSure btn btn-info" data-dismiss="modal">确定</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
 
 </body>
@@ -199,15 +207,34 @@
     });
 </script>
 <script type="text/javascript">
-    //删除
+
+    // 删除2
+    function trash(r_id) {
+        if (!r_id) {
+            alert("error");
+        } else {
+            $(".delSure").click(function () {
+                $.ajax({
+                    url: '<%=basePath%>/userArticle/deleteArticle.do',
+                    type: 'POST',
+                    data: {r_id: r_id},
+                    success: function (data) {
+                        $("body").html(data);
+                    }
+                });
+            });
+        }
+    }
+
+    //删除1
     function clean(r_id) {
         layer.open({
             title: '警告信息',
-            content: '你确定要删除？（文章将保存在回收站中）',
+            content: '你确定要删除？',
             btn: ['确定', '取消'],
             btn1: function (index, layero) {
                 $.ajax({
-                    url: '<%=basePath%>/article/clean.do',
+                    url: '<%=basePath%>/userArticle/deleteArticle.do',
                     type: 'POST',
                     data: {r_id: r_id},
                     success: function (data) {
@@ -229,6 +256,7 @@
             }
         });
     }
+
     //编辑
     function edit(r_id) {
         $.ajax({
@@ -246,6 +274,8 @@
             }
         });
     }
+
+    <!-------noUsed-------->
     $("#cleanBtnMore").click(function () {
         layer.open({
             title: '警告信息',
@@ -265,5 +295,4 @@
         }
     }
 </script>
-
 </html>

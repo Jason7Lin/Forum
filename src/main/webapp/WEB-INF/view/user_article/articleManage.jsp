@@ -34,29 +34,16 @@
                 <div class="layui-form-item">
                     <label class="layui-form-label"
                            style="margin-left: -10px;padding-left:0;"><strong>楼主</strong></label>
-                    <div class="layui-input-inline" style="width: 150px">
+                    <div class="layui-input-inline">
                         <input name="r_author" value="${article.r_author}" placeholder="请输入楼主名字查询" class="layui-input"
                                type="text">
                     </div>
-
                     <label class="layui-form-label"
                            style="margin-left: -10px;padding-left:0;"><strong>简介</strong></label>
-                    <div class="layui-input-inline" style="width: 150px">
+                    <div class="layui-input-inline">
                         <input name="r_summary" value="${article.r_summary}" placeholder="请输入帖子简介查询" class="layui-input"
                                type="text">
                     </div>
-
-                    <label class="layui-form-label"
-                           style="margin-left: -10px;padding-left:0;"><strong>版块</strong></label>
-                    <div class="layui-input-inline" style="width: 100px">
-                        <select name="r_module" id="r_module" lay-verify="required" lay-search="">
-                            <option value="">请选择</option>
-                            <c:forEach items="${requestScope.moduleList}" var="module">
-                                <option value="${module.m_module}" <c:if test="${module.m_module == article.r_module}">selected</c:if> >${module.m_module}</option>
-                            </c:forEach>
-                        </select>
-                    </div>
-
                     <div class="layui-input-inline" style="margin-left: 50px;">
                         <button class="layui-btn" type="submit">查询</button>
                         <button type="reset" class="layui-btn layui-btn-primary">重置</button>

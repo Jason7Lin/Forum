@@ -147,11 +147,7 @@
                         <input name="a_name" id="a_name" hidden="hidden"/>
                         <div class="form-group form-inline">
                             <label>性别：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                            <select class="form-control" name="a_sex" id="a_sex" lay-verify="required" lay-search="">
-                                <option value="">请选择</option>
-                                <option value="男" selected>男</option>
-                                <option value="女">女</option>
-                            </select>
+                            <input type="text" name="a_sex" class="form-control" id="a_sex"/>
                         </div>
                         <br/>
                         <br/>
@@ -176,8 +172,7 @@
                         <div class="form-group form-inline">
                             <label>个人简介：</label>
                             <%--<input type="text" name="a_sign" class="form-control" id="a_sign"/>--%>
-                            <textarea style="width: 400px; height: 150px" name="a_sign" class="form-control"
-                                      id="a_sign"></textarea>
+                            <textarea style="width: 400px; height: 150px" name="a_sign" class="form-control" id="a_sign"></textarea>
                         </div>
                     </div>
                     <div class="modal-footer">
