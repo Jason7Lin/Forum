@@ -73,33 +73,7 @@
                         </strong>
                     </a>
                 </li>
-                <li class="layui-nav-item">
-                    <a style="text-decoration: none;"><strong><span class="fa fa-leaf fa-fw"></span>&nbsp;&nbsp;&nbsp;论坛版块</strong></a>
-                    <dl class="layui-nav-child">
-                        <dd><a href="javascript:;" onclick="javascript: toModuleArticle01();"
-                               style="text-decoration: none;"><strong>校园快讯</strong></a></dd>
-                        <dd><a href="javascript:;" onclick="javascript: toModuleArticle02();"
-                               style="text-decoration: none;"><strong>新生专区</strong></a></dd>
-                        <dd><a href="javascript:;" onclick="javascript: toModuleArticle03();"
-                               style="text-decoration: none;"><strong>生活信息</strong></a></dd>
-                        <dd><a href="javascript:;" onclick="javascript: toModuleArticle04();"
-                               style="text-decoration: none;"><strong>知识海洋</strong></a></dd>
-                        <dd><a href="javascript:;" onclick="javascript: toModuleArticle05();"
-                               style="text-decoration: none;"><strong>求职就业</strong></a></dd>
-                        <dd><a href="javascript:;" onclick="javascript: toModuleArticle06();"
-                               style="text-decoration: none;"><strong>社团组织</strong></a></dd>
-                        <dd><a href="javascript:;" onclick="javascript: toModuleArticle07();"
-                               style="text-decoration: none;"><strong>考研地带</strong></a></dd>
-                        <dd><a href="javascript:;" onclick="javascript: toModuleArticle08();"
-                               style="text-decoration: none;"><strong>休闲娱乐</strong></a></dd>
-                        <dd><a href="javascript:;" onclick="javascript: toModuleArticle09();"
-                               style="text-decoration: none;"><strong>游戏运动</strong></a></dd>
-                        <dd><a href="javascript:;" onclick="javascript: toModuleArticle10();"
-                               style="text-decoration: none;"><strong>学术科学</strong></a></dd>
-                        <dd><a href="javascript:;" onclick="javascript: toModuleArticle11();"
-                               style="text-decoration: none;"><strong>电脑技术</strong></a></dd>
-                    </dl>
-                </li>
+
                 <li class="layui-nav-item">
                     <a href="javascript:;" onclick="javascript: toGreatArticle();" style="text-decoration: none;">
                         <strong>

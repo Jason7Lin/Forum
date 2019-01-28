@@ -121,6 +121,19 @@
             </div>
         </div>
         <br>
+        <!--身份-->
+        <div class="row">
+            <div class="col-md-12">
+                <b>身份</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <c:if test="${ user.a_key == 0}">
+                    <span>普通用户</span>
+                </c:if>
+                <c:if test="${ user.a_key == 1}">
+                    <span>管理员</span>
+                </c:if>
+            </div>
+        </div>
+        <br>
         <div class="row">
             <div class="col-md-2">
                 <button type="button" class="btn btn-info" onclick="return edit(${user.a_id})">
