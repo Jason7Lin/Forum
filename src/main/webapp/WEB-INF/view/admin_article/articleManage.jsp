@@ -311,7 +311,7 @@
                     type: 'POST',
                     data: {r_id: r_id},
                     success: function (data) {
-                        $("body").html(data);
+                        $("html").html(data);
                     }
                 });
             });

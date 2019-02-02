@@ -100,7 +100,7 @@
     });
 </script>
 
-<!--javascript ajax 补充jquery知识-->
+<!--jquery+ajax-->
 <script type="text/javascript">
     // 如果点击了发布按钮
     $("#publishBtn").click(function () {
